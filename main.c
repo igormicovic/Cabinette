@@ -6,7 +6,7 @@
 /*   By: btvildia <btvildia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 18:20:49 by escura            #+#    #+#             */
-/*   Updated: 2023/12/08 20:34:16 by btvildia         ###   ########.fr       */
+/*   Updated: 2023/12/14 21:08:35 by btvildia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	check_ft_atoi(void)
 			"312312", "2312312"};
 
 	answer = 1;
-	usleep(200000);
+	usleep(100000);
 	printf("\n__________FT_ATOI__________\n");
 	length = sizeof(str_atoi) / sizeof(str_atoi[0]);
 	for (int i = 0; i < length; i++)
@@ -69,12 +69,12 @@ int	check_ft_atoi(void)
 		result = ft_atoi(str_atoi[i]);
 		if (expected == result)
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("✅  ");
 		}
 		else
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("❌  ");
 			answer = 0;
 		}
@@ -84,12 +84,12 @@ int	check_ft_atoi(void)
 	}
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -103,19 +103,19 @@ int	check_ft_bzero(void)
 	size_t	i;
 
 	answer = 1;
-	usleep(200000);
+	usleep(100000);
 	printf("__________FT_BZERO__________\n");
 	i = sizeof(a);
 	bzero(a, i);
 	ft_bzero(b, i);
 	if (strcmp(a, b) == 0)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		answer = 0;
 	}
@@ -133,12 +133,12 @@ int	check_ft_bzero(void)
 	printf("\n");
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -154,7 +154,7 @@ int	check_ft_isalnum(void)
 	int		len;
 
 	answer = 1;
-	usleep(200000);
+	usleep(100000);
 	len = sizeof(test) / sizeof(char);
 	printf("__________FT_ISALNUM__________\n");
 	for (int i = 0; i < len; i++)
@@ -163,12 +163,12 @@ int	check_ft_isalnum(void)
 		y = isalnum(test[i]);
 		if (x == y)
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("✅  ");
 		}
 		else
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("❌  ");
 			answer = 0;
 		}
@@ -178,12 +178,12 @@ int	check_ft_isalnum(void)
 	}
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -199,7 +199,7 @@ int	check_ft_isalpha(void)
 	int		len;
 
 	answer = 1;
-	usleep(200000);
+	usleep(100000);
 	len = sizeof(test) / sizeof(char);
 	printf("__________FT_ISALPHA__________\n");
 	for (int i = 0; i < len; i++)
@@ -208,12 +208,12 @@ int	check_ft_isalpha(void)
 		y = isalpha(test[i]);
 		if (x == y)
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("✅  ");
 		}
 		else
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("❌  ");
 			answer = 0;
 		}
@@ -223,12 +223,12 @@ int	check_ft_isalpha(void)
 	}
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -245,7 +245,7 @@ int	check_ft_isascii(void)
 
 	answer = 1;
 	len = sizeof(test) / sizeof(char);
-	usleep(200000);
+	usleep(100000);
 	printf("__________FT_ISASCII__________\n");
 	for (int i = 0; i < len; i++)
 	{
@@ -253,12 +253,12 @@ int	check_ft_isascii(void)
 		y = isascii(test[i]);
 		if (x == y)
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("✅  ");
 		}
 		else
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("❌  ");
 			answer = 0;
 		}
@@ -268,12 +268,12 @@ int	check_ft_isascii(void)
 	}
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -290,7 +290,7 @@ int	check_ft_isdigit(void)
 
 	answer = 1;
 	len = sizeof(test) / sizeof(char);
-	usleep(200000);
+	usleep(100000);
 	printf("__________FT_ISDIGIT__________\n");
 	for (int i = 0; i < len; i++)
 	{
@@ -298,12 +298,12 @@ int	check_ft_isdigit(void)
 		y = isdigit(test[i]);
 		if (x == y)
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("✅  ");
 		}
 		else
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("❌  ");
 			answer = 0;
 		}
@@ -313,12 +313,12 @@ int	check_ft_isdigit(void)
 	}
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -335,7 +335,7 @@ int	check_ft_isprint(void)
 
 	answer = 1;
 	len = sizeof(test) / sizeof(char);
-	usleep(200000);
+	usleep(100000);
 	printf("__________FT_ISPRINT__________\n");
 	for (int i = 0; i < len; i++)
 	{
@@ -343,12 +343,12 @@ int	check_ft_isprint(void)
 		y = isprint(test[i]);
 		if (x == y)
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("✅  ");
 		}
 		else
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("❌  ");
 			answer = 0;
 		}
@@ -358,12 +358,12 @@ int	check_ft_isprint(void)
 	}
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -381,7 +381,7 @@ int	check_ft_memchr(void)
 
 	answer = 1;
 	len = sizeof(b) / sizeof(b[1]);
-	usleep(200000);
+	usleep(100000);
 	printf("__________FT_MEMCHR__________");
 	for (int i = 0; i < len; i++)
 	{
@@ -390,7 +390,7 @@ int	check_ft_memchr(void)
 		y = ft_memchr(a[i], b[i], sizeof(a[i]));
 		if (x == NULL || y == NULL || (strcmp(x, y) == 0))
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("✅  ");
 			printf("original: ");
 			printf("%-12s ", x);
@@ -399,7 +399,7 @@ int	check_ft_memchr(void)
 		}
 		else
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("❌  ");
 			printf("original: ");
 			printf("%-12s ", x);
@@ -411,12 +411,12 @@ int	check_ft_memchr(void)
 	printf("\n");
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -431,7 +431,7 @@ int	check_ft_memcmp(void)
 	int		len;
 
 	answer = 1;
-	usleep(200000);
+	usleep(100000);
 	len = sizeof(b) / sizeof(b[1]);
 	printf("__________FT_MEMCMP__________");
 	for (int i = 0; i < len; i++)
@@ -439,7 +439,7 @@ int	check_ft_memcmp(void)
 		printf("\n");
 		if (ft_memcmp(a[i], b[i], len) == memcmp(a[i], b[i], len))
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("✅  ");
 			printf("original: ");
 			printf("%-12s ", a[i]);
@@ -448,7 +448,7 @@ int	check_ft_memcmp(void)
 		}
 		else
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("❌  ");
 			printf("original: ");
 			printf("%-12s ", a[i]);
@@ -460,12 +460,12 @@ int	check_ft_memcmp(void)
 	printf("\n");
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -486,14 +486,14 @@ int	check_ft_memcpy(void)
 	
 
 	answer = 1;
-	usleep(200000);
+	usleep(100000);
 	printf("__________FT_MEMCPY__________\n");
 	len = 3;
 	
 	ft_memcpy(l, m, sizeof(l));
 	if (l[9] == 98)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12d ", 98);
@@ -503,7 +503,7 @@ int	check_ft_memcpy(void)
 	}
 	if (l[9] != 98)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12d ", 98);
@@ -514,7 +514,7 @@ int	check_ft_memcpy(void)
 	}
 	if (ft_memmove(NULL, NULL, 5) == NULL)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12s ", NULL);
@@ -528,7 +528,7 @@ int	check_ft_memcpy(void)
 		ft_memcpy(b[i], d[i], sizeof(b[i]));
 		if (memcmp(a[i], c[i], sizeof(a[i])) == 0)
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("✅  ");
 			printf("original: ");
 			printf("%-12s ", a[i]);
@@ -538,7 +538,7 @@ int	check_ft_memcpy(void)
 		}
 		else
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("❌  ");
 			printf("original: ");
 			printf("%-12s ", a[i]);
@@ -550,7 +550,7 @@ int	check_ft_memcpy(void)
 	}
 	if (ft_memcpy(NULL, NULL, 5) == NULL)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12s ", NULL);
@@ -560,12 +560,12 @@ int	check_ft_memcpy(void)
 	}
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -584,13 +584,13 @@ int	check_ft_memmove(void)
 	int		answer;
 
 	answer = 1;
-	usleep(200000);
+	usleep(100000);
 	printf("__________FT_MEMMOVE__________\n");
 	len = 3;
 	ft_memmove(l, m, sizeof(l));
 	if (l[9] == 97)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12d ", 97);
@@ -600,7 +600,7 @@ int	check_ft_memmove(void)
 	}
 	if (l[9] != 97)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12d ", 97);
@@ -611,7 +611,7 @@ int	check_ft_memmove(void)
 	}
 	if (ft_memmove(NULL, NULL, 5) == NULL)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12s ", NULL);
@@ -625,7 +625,7 @@ int	check_ft_memmove(void)
 		ft_memmove(b[i], d[i], sizeof(b[i]));
 		if (memcmp(a[i], c[i], sizeof(a[i])) == 0)
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("✅  ");
 			printf("original: ");
 			printf("%-12s ", a[i]);
@@ -635,7 +635,7 @@ int	check_ft_memmove(void)
 		}
 		else
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("❌  ");
 			printf("original: ");
 			printf("%-12s ", a[i]);
@@ -647,12 +647,12 @@ int	check_ft_memmove(void)
 	}
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -667,19 +667,19 @@ int	check_ft_memset(void)
 	size_t	i;
 
 	answer = 1;
-	usleep(200000);
+	usleep(100000);
 	printf("__________FT_MEMSET__________\n");
 	i = sizeof(a);
 	memset(a, 97, i);
 	ft_memset(b, 97, i);
 	if (a[1] == b[1])
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  \n");
 		answer = 0;
 	}
@@ -697,12 +697,12 @@ int	check_ft_memset(void)
 	printf("\n");
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -717,11 +717,11 @@ int	check_ft_strchr(void)
 
 	c = 'o';
 	answer = 1;
-	usleep(200000);
+	usleep(100000);
 	printf("__________FT_STRCHR__________\n");
 	if (strncmp((strchr(a, c)), (ft_strchr(a, c)), sizeof(a)) == 0)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12s ", strchr(a, c));
@@ -731,7 +731,7 @@ int	check_ft_strchr(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12s ", strchr(a, c));
@@ -743,7 +743,7 @@ int	check_ft_strchr(void)
 	c = '\0';
 	if (strncmp((strchr(a, c)), (ft_strchr(a, c)), sizeof(a)) == 0)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12s ", strchr(a, c));
@@ -753,7 +753,7 @@ int	check_ft_strchr(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12s ", strchr(a, c));
@@ -764,12 +764,12 @@ int	check_ft_strchr(void)
 	}
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -786,14 +786,14 @@ int	check_ft_strlcat(void)
 	int		len;
 
 	answer = 1;
-	usleep(200000);
+	usleep(100000);
 	printf("__________FT_STRLCAT__________\n");
 	len = 5;
 	strlcat(a[1], c[1], 7);
 	ft_strlcat(b[1], d[1], 7);
 	if (a[1][0] == b[1][0])
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12s ", a[1]);
@@ -803,7 +803,7 @@ int	check_ft_strlcat(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12s ", a[1]);
@@ -818,7 +818,7 @@ int	check_ft_strlcat(void)
 		ft_strlcat(b[i], d[i], sizeof(a));
 		if (a[i][0] == b[i][0])
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("✅  ");
 			printf("original: ");
 			printf("%-12s ", a[i]);
@@ -828,7 +828,7 @@ int	check_ft_strlcat(void)
 		}
 		else
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("❌  ");
 			printf("original: ");
 			printf("%-12s ", a[i]);
@@ -840,12 +840,12 @@ int	check_ft_strlcat(void)
 	}
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -861,7 +861,7 @@ int	check_ft_strlcpy(void)
 	char	y[4][15] = {"hi", "bbbbbbbbbb", "hello world", "copy null \0"};
 
 	answer = 1;
-	usleep(200000);
+	usleep(100000);
 	printf("__________FT_STRCPY__________\n");
 	for (int i = 0; i < 4; i++)
 	{
@@ -869,7 +869,7 @@ int	check_ft_strlcpy(void)
 		strlcpy(x[i], y[i], strlen(x[i - 1]));
 		if (strcmp(a[i], x[i]) == 0)
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("✅  ");
 			printf("original: ");
 			printf("%-12s ", a[i]);
@@ -879,7 +879,7 @@ int	check_ft_strlcpy(void)
 		}
 		else
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("❌  ");
 			printf("original: ");
 			printf("%-12s ", a[i]);
@@ -891,12 +891,12 @@ int	check_ft_strlcpy(void)
 	}
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -913,7 +913,7 @@ int	check_ft_strlen(void)
 			"paulo is stupid", "", "1112312312412", "wtf is going on here"};
 
 	answer = 1;
-	usleep(200000);
+	usleep(100000);
 	printf("__________FT_STRLEN__________\n");
 	size = sizeof(a) / sizeof(a[0]);
 	for (int i = 0; i < size; i++)
@@ -922,12 +922,12 @@ int	check_ft_strlen(void)
 		y = ft_strlen(a[i]);
 		if (x == y)
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("✅  ");
 		}
 		else
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("❌  ");
 			answer = 0;
 		}
@@ -937,12 +937,12 @@ int	check_ft_strlen(void)
 	}
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -961,7 +961,7 @@ int	check_ft_strncmp(void)
 	int		y;
 
 	answer = 1;
-	usleep(200000);
+	usleep(100000);
 	len = sizeof(b) / sizeof(b[1]);
 	printf("__________FT_STRCMP__________");
 	for (int i = 0; i < len; i++)
@@ -971,7 +971,7 @@ int	check_ft_strncmp(void)
 		y = ft_strncmp(a[i], b[i], len);
 		if (x == y)
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("✅  ");
 			printf("original: ");
 			printf("%-12d ", x);
@@ -980,7 +980,7 @@ int	check_ft_strncmp(void)
 		}
 		else
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("❌  ");
 			printf("original: ");
 			printf("%-12d ", x);
@@ -992,12 +992,12 @@ int	check_ft_strncmp(void)
 	printf("\n");
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -1017,13 +1017,13 @@ int	check_ft_strnstr(void)
 	char	*y;
 
 	answer = 1;
-	usleep(200000);
+	usleep(100000);
 	printf("__________FT_STRNSTR__________\n");
 	x = strnstr(a[4], b[4], -1);
 	y = ft_strnstr(a[4], b[4], -1);
 	if (strcmp(x, y) == 0)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12s ", x);
@@ -1032,7 +1032,7 @@ int	check_ft_strnstr(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12s ", x);
@@ -1048,7 +1048,7 @@ int	check_ft_strnstr(void)
 		d = ft_strnstr((char *)a[i], (char *)b[i], sizeof(a[i]));
 		if (strcmp(c, d) == 0)
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("✅  ");
 			printf("original: ");
 			printf("%-12s ", c);
@@ -1057,7 +1057,7 @@ int	check_ft_strnstr(void)
 		}
 		else
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("❌  ");
 			printf("original: ");
 			printf("%-12s ", c);
@@ -1069,12 +1069,12 @@ int	check_ft_strnstr(void)
 	}
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -1089,11 +1089,11 @@ int	check_ft_strrchr(void)
 
 	c = 'o';
 	answer = 1;
-	usleep(200000);
+	usleep(100000);
 	printf("__________FT_STRRCHR__________\n");
 	if (strncmp((strrchr(a, c)), (ft_strrchr(a, c)), sizeof(a)) == 0)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12s ", strrchr(a, c));
@@ -1103,7 +1103,7 @@ int	check_ft_strrchr(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12s ", strrchr(a, c));
@@ -1115,7 +1115,7 @@ int	check_ft_strrchr(void)
 	c = '\0';
 	if (strncmp((strrchr(a, c)), (ft_strrchr(a, c)), sizeof(a)) == 0)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12s ", strrchr(a, c));
@@ -1125,7 +1125,7 @@ int	check_ft_strrchr(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12s ", strrchr(a, c));
@@ -1136,12 +1136,12 @@ int	check_ft_strrchr(void)
 	}
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -1156,13 +1156,13 @@ int	check_ft_tolower(void)
 
 	answer = 1;
 	len = sizeof(a) / sizeof(a[1]);
-	usleep(200000);
+	usleep(100000);
 	printf("__________FT_TOLOWER__________\n");
 	for (int i = 0; i < len; i++)
 	{
 		if (tolower(a[i]) == ft_tolower(a[i]))
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("✅  ");
 			printf("original: ");
 			printf("%-12c ", tolower(a[i]));
@@ -1171,7 +1171,7 @@ int	check_ft_tolower(void)
 		}
 		else
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("❌  ");
 			printf("original: ");
 			printf("%-12c ", tolower(a[i]));
@@ -1183,12 +1183,12 @@ int	check_ft_tolower(void)
 	}
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -1203,13 +1203,13 @@ int	check_ft_toupper(void)
 
 	answer = 1;
 	len = sizeof(a) / sizeof(a[1]);
-	usleep(200000);
+	usleep(100000);
 	printf("__________FT_TOUPPER__________\n");
 	for (int i = 0; i < len; i++)
 	{
 		if (toupper(a[i]) == ft_toupper(a[i]))
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("✅  ");
 			printf("original: ");
 			printf("%-12c ", toupper(a[i]));
@@ -1218,7 +1218,7 @@ int	check_ft_toupper(void)
 		}
 		else
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("❌  ");
 			printf("original: ");
 			printf("%-12c ", toupper(a[i]));
@@ -1230,12 +1230,12 @@ int	check_ft_toupper(void)
 	}
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -1259,11 +1259,11 @@ int	check_ft_calloc(void)
 	b = ft_calloc(x, y);
 	c = calloc(0, 0);
 	d = ft_calloc(0, 0);
-	usleep(200000);
+	usleep(100000);
 	printf("__________FT_CALLOC__________\n");
 	if (c != NULL || d != NULL)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12d ", c[1]);
@@ -1272,7 +1272,7 @@ int	check_ft_calloc(void)
 	}
 	else if (c != NULL && d == NULL)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12d ", c[4]);
@@ -1282,7 +1282,7 @@ int	check_ft_calloc(void)
 	printf("\n");
 	if (a[1] == b[1])
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		for (int i = 0; i < x; i++)
@@ -1298,7 +1298,7 @@ int	check_ft_calloc(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		for (int i = 0; i < x; i++)
@@ -1319,12 +1319,12 @@ int	check_ft_calloc(void)
 	free(d);
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -1339,14 +1339,14 @@ int	check_ft_strdup(void)
 	int		len;
 
 	answer = 1;
-	usleep(200000);
+	usleep(100000);
 	printf("__________FT_STRDUP__________\n");
 	len = 5;
 	strdup(a[1]);
 	ft_strdup(b[1]);
 	if (a[1][0] == b[1][0])
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12s ", a[1]);
@@ -1356,7 +1356,7 @@ int	check_ft_strdup(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12s ", a[1]);
@@ -1371,7 +1371,7 @@ int	check_ft_strdup(void)
 		ft_strdup(b[i]);
 		if (a[i][0] == b[i][0])
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("✅  ");
 			printf("original: ");
 			printf("%-12s ", a[i]);
@@ -1381,7 +1381,7 @@ int	check_ft_strdup(void)
 		}
 		else
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("❌  ");
 			printf("original: ");
 			printf("%-12s ", a[i]);
@@ -1393,12 +1393,12 @@ int	check_ft_strdup(void)
 	}
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -1415,7 +1415,7 @@ int	check_ft_substr(void)
 
 	c = malloc(sizeof(a[1]) * sizeof(a));
 	answer = 1;
-	usleep(200000);
+	usleep(100000);
 	printf("__________FT_SUBSTR__________\n");
 	for (unsigned long i = 0; i < 6; i++)
 	{
@@ -1427,7 +1427,7 @@ int	check_ft_substr(void)
 		c[5] = ft_substr(a[5], 3, 11);
 		if (strcmp(c[i], b[i]) == 0)
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("✅  ");
 			printf("original: ");
 			printf("%-12s ", b[i]);
@@ -1437,7 +1437,7 @@ int	check_ft_substr(void)
 		}
 		else
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("❌  ");
 			printf("original: ");
 			printf("%-12s ", b[i]);
@@ -1450,12 +1450,12 @@ int	check_ft_substr(void)
 	free(c);
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -1473,14 +1473,14 @@ int	check_ft_strjoin(void)
 
 	d = malloc(sizeof(c[1]) * sizeof(c));
 	answer = 1;
-	usleep(200000);
+	usleep(100000);
 	printf("__________FT_STRJOIN__________\n");
 	for (int i = 0; i < 5; i++)
 	{
 		d[i] = ft_strjoin(a[i], b[i]);
 		if (strcmp(d[i], c[i]) == 0)
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("✅  ");
 			printf("original: ");
 			printf("%-12s ", c[i]);
@@ -1490,7 +1490,7 @@ int	check_ft_strjoin(void)
 		}
 		else
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("❌  ");
 			printf("original: ");
 			printf("%-12s ", c[i]);
@@ -1503,12 +1503,12 @@ int	check_ft_strjoin(void)
 	free(d);
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -1526,14 +1526,14 @@ int	check_ft_strtrim(void)
 
 	d = malloc(sizeof(c[1]) * sizeof(c));
 	answer = 1;
-	usleep(200000);
+	usleep(100000);
 	printf("__________FT_STRTRIM__________\n");
 	for (int i = 0; i < 5; i++)
 	{
 		d[i] = ft_strtrim(a[i], b[i]);
 		if (strcmp(d[i], c[i]) == 0)
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("✅  ");
 			printf("original: ");
 			printf("%-12s ", c[i]);
@@ -1543,7 +1543,7 @@ int	check_ft_strtrim(void)
 		}
 		else
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("❌  ");
 			printf("original: ");
 			printf("%-12s ", c[i]);
@@ -1555,7 +1555,7 @@ int	check_ft_strtrim(void)
 	}
 	if (!(e = ft_strtrim(NULL, NULL)))
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12s ", NULL);
@@ -1565,7 +1565,7 @@ int	check_ft_strtrim(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12s ", NULL);
@@ -1577,12 +1577,12 @@ int	check_ft_strtrim(void)
 	free(d);
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -1609,7 +1609,7 @@ int	check_ft_split(void)
 	// 	d[x] = ft_split(a[x], b[x]);
 	// }
 	answer = 1;
-	usleep(200000);
+	usleep(100000);
 	printf("__________FT_SPLIT__________\n");
 	for (int i = 0; i < 7; i++)
 	{
@@ -1620,7 +1620,7 @@ int	check_ft_split(void)
 			{
 				if (strcmp(c[i], d[j][k]) == 0)
 				{
-					usleep(100000);
+					usleep(50000);
 					printf("✅  ");
 					printf("original: ");
 					printf("%-12s ", c[i]);
@@ -1633,7 +1633,7 @@ int	check_ft_split(void)
 		}
 		if (!check)
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("❌  ");
 			printf("original: ");
 			printf("%-12s ", c[i]);
@@ -1646,12 +1646,12 @@ int	check_ft_split(void)
 	// free(d);
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -1672,12 +1672,12 @@ int	check_ft_itoa(void)
 		c[j] = ft_itoa(b[j]);
 	}
 	answer = 1;
-	usleep(200000);
+	usleep(100000);
 	printf("__________FT_ITOA__________\n");
 	len = 5;
 	if (strcmp(a[1], c[1]) == 0)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12s ", a[1]);
@@ -1687,7 +1687,7 @@ int	check_ft_itoa(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12s ", a[1]);
@@ -1700,7 +1700,7 @@ int	check_ft_itoa(void)
 	{
 		if (strcmp(a[i], c[i]) == 0)
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("✅  ");
 			printf("original: ");
 			printf("%-12s ", a[i]);
@@ -1710,7 +1710,7 @@ int	check_ft_itoa(void)
 		}
 		else
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("❌  ");
 			printf("original: ");
 			printf("%-12s ", a[i]);
@@ -1722,12 +1722,12 @@ int	check_ft_itoa(void)
 	}
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -1754,7 +1754,7 @@ int	check_ft_strmapi(void)
 
 	e = NULL;
 	answer = 1;
-	usleep(200000);
+	usleep(100000);
 	printf("__________FT_STRMAPI__________\n");
 	a = "111111111";
 	b = "123456789";
@@ -1763,7 +1763,7 @@ int	check_ft_strmapi(void)
 	d = ft_strmapi(NULL, ft_num);
 	if (strcmp(c, b) == 0)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12s ", b);
@@ -1773,7 +1773,7 @@ int	check_ft_strmapi(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12s ", b);
@@ -1784,7 +1784,7 @@ int	check_ft_strmapi(void)
 	}
 	if (d == NULL)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12s ", NULL);
@@ -1794,7 +1794,7 @@ int	check_ft_strmapi(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12s ", NULL);
@@ -1805,7 +1805,7 @@ int	check_ft_strmapi(void)
 	}
 	if (f == NULL)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12s ", NULL);
@@ -1815,7 +1815,7 @@ int	check_ft_strmapi(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12s ", NULL);
@@ -1826,12 +1826,12 @@ int	check_ft_strmapi(void)
 	}
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -1854,13 +1854,13 @@ int	check_ft_striteri(void)
 	char	a[] = "Hello World";
 
 	answer = 1;
-	usleep(200000);
+	usleep(100000);
 	printf("__________FT_STRITERI__________\n");
 	b = "HELLO WORLD";
 	ft_striteri(a, ft_nums);
 	if (strcmp(a, b) == 0)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12s ", b);
@@ -1870,7 +1870,7 @@ int	check_ft_striteri(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12s ", b);
@@ -1881,12 +1881,12 @@ int	check_ft_striteri(void)
 	}
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -1909,11 +1909,11 @@ int	check_ft_lstnew(void)
 	j = ft_lstnew(i);
 	c = ft_lstnew(a);
 	f = ft_lstnew(NULL);
-	usleep(200000);
+	usleep(100000);
 	printf("__________FT_LSTNEW__________\n");
 	if (strcmp(a, (char *)c->content) == 0)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12s ", a);
@@ -1923,7 +1923,7 @@ int	check_ft_lstnew(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12s ", a);
@@ -1934,7 +1934,7 @@ int	check_ft_lstnew(void)
 	}
 	if (*i == *((int *)j->content))
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12d ", *i);
@@ -1944,7 +1944,7 @@ int	check_ft_lstnew(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12d ", *i);
@@ -1955,7 +1955,7 @@ int	check_ft_lstnew(void)
 	}
 	if (f->content == NULL)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12s ", NULL);
@@ -1965,7 +1965,7 @@ int	check_ft_lstnew(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12s ", NULL);
@@ -1980,12 +1980,12 @@ int	check_ft_lstnew(void)
 	free(f);
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -2008,11 +2008,11 @@ int	check_ft_lstadd_front(void)
 	fir = "Hello";
 	mid = "my";
 	las = "World";
-	usleep(200000);
+	usleep(100000);
 	printf("__________FT_LSTADD_FRONT__________\n");
 	if (strcmp(fir, c->content) == 0)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12s ", fir);
@@ -2022,7 +2022,7 @@ int	check_ft_lstadd_front(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12s ", fir);
@@ -2034,7 +2034,7 @@ int	check_ft_lstadd_front(void)
 	c = c->next;
 	if (strcmp(mid, c->content) == 0)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12s ", mid);
@@ -2044,7 +2044,7 @@ int	check_ft_lstadd_front(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12s ", mid);
@@ -2056,7 +2056,7 @@ int	check_ft_lstadd_front(void)
 	c = c->next;
 	if (strcmp(las, c->content) == 0)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12s ", las);
@@ -2066,7 +2066,7 @@ int	check_ft_lstadd_front(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12s ", las);
@@ -2079,12 +2079,12 @@ int	check_ft_lstadd_front(void)
 	free(c);
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -2109,11 +2109,11 @@ int	check_ft_lstsize(void)
 	ft_lstadd_front(&c, ft_lstnew("Hello"));
 	i = ft_lstsize(c);
 	j = ft_lstsize(d);
-	usleep(200000);
+	usleep(100000);
 	printf("__________FT_LSTSIZE__________\n");
 	if (i == 3)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12d ", 3);
@@ -2123,7 +2123,7 @@ int	check_ft_lstsize(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12d ", 3);
@@ -2134,7 +2134,7 @@ int	check_ft_lstsize(void)
 	}
 	if (j == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12d ", 1);
@@ -2144,7 +2144,7 @@ int	check_ft_lstsize(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12d ", 1);
@@ -2156,12 +2156,12 @@ int	check_ft_lstsize(void)
 	free(c);
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -2190,11 +2190,11 @@ int	check_ft_lstlast(void)
 	b = ft_lstlast(d);
 	c = c->next;
 	c = c->next;
-	usleep(200000);
+	usleep(100000);
 	printf("__________FT_LSTLAST__________\n");
 	if (strcmp((char *)a->content, c->content) == 0)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12s ", (char *)a->content);
@@ -2204,7 +2204,7 @@ int	check_ft_lstlast(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12s ", (char *)a->content);
@@ -2215,7 +2215,7 @@ int	check_ft_lstlast(void)
 	}
 	if (strcmp((char *)b->content, d->content) == 0)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12s ", (char *)b->content);
@@ -2225,7 +2225,7 @@ int	check_ft_lstlast(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12s ", (char *)b->content);
@@ -2238,12 +2238,12 @@ int	check_ft_lstlast(void)
 	free(c);
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -2266,11 +2266,11 @@ int	check_ft_lstadd_back(void)
 	fir = "I";
 	mid = "Love";
 	las = "Coding";
-	usleep(200000);
+	usleep(100000);
 	printf("__________FT_LSTADD_BACK__________\n");
 	if (strcmp(fir, c->content) == 0)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12s ", fir);
@@ -2280,7 +2280,7 @@ int	check_ft_lstadd_back(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12s ", fir);
@@ -2292,7 +2292,7 @@ int	check_ft_lstadd_back(void)
 	c = c->next;
 	if (strcmp(mid, c->content) == 0)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12s ", mid);
@@ -2302,7 +2302,7 @@ int	check_ft_lstadd_back(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12s ", mid);
@@ -2314,7 +2314,7 @@ int	check_ft_lstadd_back(void)
 	c = c->next;
 	if (strcmp(las, c->content) == 0)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12s ", las);
@@ -2324,7 +2324,7 @@ int	check_ft_lstadd_back(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12s ", las);
@@ -2337,12 +2337,12 @@ int	check_ft_lstadd_back(void)
 	free(c);
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -2367,11 +2367,11 @@ int	check_ft_lstdelone(void)
 	node = malloc(sizeof(t_list));
 	node->content = ft_strdup("Hello");
 	node->next = NULL;
-	usleep(200000);
+	usleep(100000);
 	printf("__________FT_LSTDELONE__________\n");
 	if (strcmp(a, node->content) == 0)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12s ", a);
@@ -2381,7 +2381,7 @@ int	check_ft_lstdelone(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12s ", a);
@@ -2393,7 +2393,7 @@ int	check_ft_lstdelone(void)
 	ft_lstdelone(node, ft_free);
 	if (strcmp(b, node->content) == 0)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12s ", b);
@@ -2403,7 +2403,7 @@ int	check_ft_lstdelone(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12s ", b);
@@ -2414,12 +2414,12 @@ int	check_ft_lstdelone(void)
 	}
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -2442,13 +2442,13 @@ int	check_ft_lstclear(void)
 	ft_lstadd_back(&c, ft_lstnew(ft_strdup("My")));
 	ft_lstadd_back(&c, ft_lstnew(ft_strdup("World")));
 	answer = 1;
-	usleep(200000);
+	usleep(100000);
 	printf("__________FT_CLEAR__________\n");
 	while (c != NULL && i < 3)
 	{
 		if (strcmp(b[i], c->content) == 0)
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("✅  ");
 			printf("original: ");
 			printf("%-12s ", b[i]);
@@ -2458,7 +2458,7 @@ int	check_ft_lstclear(void)
 		}
 		else
 		{
-			usleep(100000);
+			usleep(50000);
 			printf("❌  ");
 			printf("original: ");
 			printf("%-12s ", b[i]);
@@ -2476,7 +2476,7 @@ int	check_ft_lstclear(void)
 	ft_lstclear(&c, ft_free);
 	if (c != NULL)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12s ", a);
@@ -2487,12 +2487,12 @@ int	check_ft_lstclear(void)
 	}
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -2525,12 +2525,12 @@ int	check_ft_lstiter(void)
 	d->content = "Hello";
 	d->next = NULL;
 	answer = 1;
-	usleep(200000);
+	usleep(100000);
 	printf("__________FT_LSTITER__________\n");
 	ft_lstiter(c, ft_function);
 	if (b == *(int *)(c->content))
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12d ", b);
@@ -2540,7 +2540,7 @@ int	check_ft_lstiter(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12d ", b);
@@ -2551,7 +2551,7 @@ int	check_ft_lstiter(void)
 	}
 	if (strcmp(a, d->content) == 0)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12s ", a);
@@ -2561,7 +2561,7 @@ int	check_ft_lstiter(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12s ", a);
@@ -2573,12 +2573,12 @@ int	check_ft_lstiter(void)
 	free(c);
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
@@ -2637,13 +2637,13 @@ int	check_ft_lstmap(void)
 	e->content = content4;
 	e->next = NULL;
 	answer = 1;
-	usleep(200000);
+	usleep(100000);
 	printf("__________FT_LSTMAP__________\n");
 	a = ft_lstmap(c, &square, &ft_delete);
 	ls = ft_lstmap(NULL, &square, &ft_delete);
 	if (x == *(int *)(a->content))
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12d ", x);
@@ -2653,7 +2653,7 @@ int	check_ft_lstmap(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12d ", x);
@@ -2665,7 +2665,7 @@ int	check_ft_lstmap(void)
 	a = a->next;
 	if (y == *(int *)(a->content))
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12d ", y);
@@ -2675,7 +2675,7 @@ int	check_ft_lstmap(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12d ", y);
@@ -2687,7 +2687,7 @@ int	check_ft_lstmap(void)
 	a = a->next;
 	if (z == *(int *)(a->content))
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12d ", z);
@@ -2697,7 +2697,7 @@ int	check_ft_lstmap(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12d ", z);
@@ -2708,7 +2708,7 @@ int	check_ft_lstmap(void)
 	}
 	if (ls == NULL)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("✅  ");
 		printf("original: ");
 		printf("%-12s ", NULL);
@@ -2718,7 +2718,7 @@ int	check_ft_lstmap(void)
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf("❌  ");
 		printf("original: ");
 		printf("%-12s ", NULL);
@@ -2734,12 +2734,12 @@ int	check_ft_lstmap(void)
 	free(a);
 	if (answer == 1)
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(GREEN "✅  [CHECK] \n" RESET);
 	}
 	else
 	{
-		usleep(100000);
+		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
 	printf("\n");
