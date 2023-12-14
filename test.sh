@@ -16,11 +16,17 @@ elif [ -e "$file2" ]; then
   mv main.c testing.c
   cp ~/Cabinette/main1.c .
   cp ~/Cabinette/Makefile1 .
+  cp ~/Cabinette/long.txt .
+  cp ~/Cabinette/nline.txt .
+  cp ~/Cabinette/text.txt .
   mv main1.c main.c
   mv Makefile1 Makefile
   make test
   rm main.c
   rm Makefile
+  rm long.txt
+  rm nline.txt
+  rm text.txt
   mv testing Makefile
   mv testing.c main.c
 else
