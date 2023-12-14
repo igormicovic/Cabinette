@@ -1,7 +1,7 @@
 mv Makefile testing
 mv main.c testing.c
-cp ~/Cabinette/main.c .
-cp ~/Cabinette/Makefile .
+cp ~/beqa/main.c .
+cp ~/beqa/Makefile .
 make test
 rm main.c
 rm Makefile
