@@ -30,7 +30,11 @@ int main() {
         ft_putstr_fd("\n", file);
         ft_putstr_fd("alias paco=~/francinette/tester.sh\n", file);
         ft_putstr_fd("\n", file);
-        ft_putstr_fd("alias beqa=~/Cabinette/test.sh\n", file);
+        ft_putstr_fd("alias cabinette=~/Cabinette/test.sh\n", file);
+        ft_putstr_fd("\n", file);
+        ft_putstr_fd("alias paulo=~/Cabinette/test.sh\n", file);
+        ft_putstr_fd("\n", file);
+        ft_putstr_fd("alias --Cupdate=~/Cabinette/update\n", file);
     }
 
     file.close();

@@ -4,8 +4,8 @@ file2="get_next_line.c"
 if [ -e "$file1" ]; then
   mv Makefile testing
   mv main.c testing.c
-  cp ~/Cabinette/main.c .
-  cp ~/Cabinette/Makefile .
+  cp ~/Cabinette/Libft/main.c .
+  cp ~/Cabinette/Libft/Makefile .
   make test
   rm main.c
   rm Makefile
@@ -14,13 +14,11 @@ if [ -e "$file1" ]; then
 elif [ -e "$file2" ]; then
   mv Makefile testing
   mv main.c testing.c
-  cp ~/Cabinette/main1.c .
-  cp ~/Cabinette/Makefile1 .
-  cp ~/Cabinette/long.txt .
-  cp ~/Cabinette/nline.txt .
-  cp ~/Cabinette/text.txt .
-  mv main1.c main.c
-  mv Makefile1 Makefile
+  cp ~/Cabinette/Get_Next_Line/main.c .
+  cp ~/Cabinette/Get_Next_Line/Makefile .
+  cp ~/Cabinette/Get_Next_Line/long.txt .
+  cp ~/Cabinette/Get_Next_Line/nline.txt .
+  cp ~/Cabinette/Get_Next_Line/text.txt .
   make test
   rm main.c
   rm Makefile
