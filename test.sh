@@ -24,6 +24,18 @@ elif [ -e "$file3" ]; then
   rm Makefile
   mv testing Makefile
   mv testing.c main.c
+elif [ -e "$file4" ]; then
+  mv Makefile testing
+  mv main.c testing.c
+  cp ~/Cabinette/Libft/main2.c .
+  cp ~/Cabinette/Libft/Makefile2 .
+  mv Makefile2 Makefile
+  mv main2.c main.c
+  make test
+  rm main.c
+  rm Makefile
+  mv testing Makefile
+  mv testing.c main.c
 elif [ -e "$file2" ]; then
   mv Makefile testing
   mv main.c testing.c
