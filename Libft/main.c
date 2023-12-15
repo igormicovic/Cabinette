@@ -6,7 +6,7 @@
 /*   By: btvildia <btvildia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 18:20:49 by escura            #+#    #+#             */
-/*   Updated: 2023/12/15 15:09:47 by btvildia         ###   ########.fr       */
+/*   Updated: 2023/12/15 15:12:59 by btvildia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -2343,7 +2343,7 @@ int	check_ft_lstadd_back(void)
 	return (answer);
 }
 
-void	ft_free(void *a)
+void	mine_ft_free(void *a)
 {
 	free(a);
 }
@@ -2384,7 +2384,7 @@ int	check_ft_lstdelone(void)
 		printf("\n");
 		answer = 0;
 	}
-	ft_lstdelone(node, ft_free);
+	ft_lstdelone(node, mine_ft_free);
 	if (strcmp(b, node->content) == 0)
 	{
 		usleep(50000);
@@ -2467,7 +2467,7 @@ int	check_ft_lstclear(void)
 	ft_lstadd_back(&c, ft_lstnew(ft_strdup("Hello")));
 	ft_lstadd_back(&c, ft_lstnew(ft_strdup("My")));
 	ft_lstadd_back(&c, ft_lstnew(ft_strdup("World")));
-	ft_lstclear(&c, ft_free);
+	ft_lstclear(&c, mine_ft_free);
 	if (c != NULL)
 	{
 		usleep(50000);
