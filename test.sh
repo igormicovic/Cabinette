@@ -1,11 +1,24 @@
-file1="libft.h"
+file1="ft_lstnew.c"
 file2="get_next_line.c"
+file3="ft_lstnew_bonus.c"
+file4="libft.h"
 
 if [ -e "$file1" ]; then
   mv Makefile testing
   mv main.c testing.c
   cp ~/Cabinette/Libft/main.c .
   cp ~/Cabinette/Libft/Makefile .
+  make test
+  rm main.c
+  rm Makefile
+  mv testing Makefile
+  mv testing.c main.c
+elif [ -e "$file3" ]; then
+  mv Makefile testing
+  mv main.c testing.c
+  cp ~/Cabinette/Libft/main.c .
+  cp ~/Cabinette/Libft/Makefile1 .
+  mv Makefile1 Makefile
   make test
   rm main.c
   rm Makefile
