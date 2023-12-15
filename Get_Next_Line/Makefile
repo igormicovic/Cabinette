@@ -15,7 +15,7 @@ $(NAME): $(OBJ)
 	ar rc $(NAME) $(OBJ)
 
 test: $(NAME)
-	$(CC) $(CFLAGS) $(NAME) main.c get_next_line.a
+	$(CC) $(CFLAGS) $(NAME) main.c
 	make clean
 	./a.out
 

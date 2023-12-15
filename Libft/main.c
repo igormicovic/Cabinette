@@ -6,7 +6,7 @@
 /*   By: btvildia <btvildia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 18:20:49 by escura            #+#    #+#             */
-/*   Updated: 2023/12/14 21:08:35 by btvildia         ###   ########.fr       */
+/*   Updated: 2023/12/15 14:49:19 by btvildia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1592,58 +1592,51 @@ int	check_ft_strtrim(void)
 int	check_ft_split(void)
 {
 	int		answer;
-	char	c[7][15] = {"bbbb", "bbb", "hello", "my", "friend", "9-=)(())",
-			"Hello World"};
-	char	d[4][7][15] = {{"bbbb", "bbb"}, {"hello", "my", "friend"},
-			{"9-=)(())"}, {"Hello World"}};
+	char	c[4][7][15] = {{"bbbb", "bbb"}, {"hello", "my", "friend"}, {"9-=)(())"}, {"Hello World"}};
 	int		j;
 	int		k;
 	int		check;
+	k = 0;
+	j = 0;
 
-	// char	a[4][15] = {"bbbbabbb", "hello my friend", "9-=)(())",
-	// 		"NHello WorldN"};
-	// char	b[4] = {'a', ' ', '\0', 'N'};
-	// char	***d = malloc((sizeof(c) * sizeof(c[0])) * sizeof(c[0][0]));
-	// for (int x = 0; x < 4; x++)
-	// {
-	// 	d[x] = ft_split(a[x], b[x]);
-	// }
+    char a[4][15] = {"bbbbabbb", "hello my friend", "9-=)(())", "NHello WorldN"};
+    char b[4] = {'a', ' ', '\0', 'N'};
+
+    char ***d = malloc(sizeof(char **) * 4);
+
+    for (int i = 0; i < 4; i++)
+    {
+        d[i] = ft_split(a[i], b[i]);
+    }
 	answer = 1;
 	usleep(100000);
 	printf("__________FT_SPLIT__________\n");
-	for (int i = 0; i < 7; i++)
-	{
-		check = 0;
-		for (j = 0; j < 4; j++)
-		{
-			for (k = 0; k < 3; k++)
-			{
-				if (strcmp(c[i], d[j][k]) == 0)
-				{
-					usleep(50000);
-					printf("✅  ");
-					printf("original: ");
-					printf("%-12s ", c[i]);
-					printf("| mine: ");
-					printf("%-12s ", d[j][k]);
-					printf("\n");
-					check = 1;
-				}
-			}
-		}
+	check = 0;
+    for (int k = 0; k < 4; k++)
+    {
+    	for (int j = 0; d[k][j] != NULL; j++)
+    	{
+			usleep(50000);
+			printf("✅  ");
+			printf("original: ");
+			printf("%-12s ", c[k][j]);
+			printf("| mine: ");
+			printf("%-12s ", d[k][j]);
+			printf("\n");
+			check = 1;
+    	}
 		if (!check)
 		{
 			usleep(50000);
 			printf("❌  ");
 			printf("original: ");
-			printf("%-12s ", c[i]);
+			printf("%-12s ", c[k][j]);
 			printf("| mine: ");
-			printf("%-12s ", d[j][k]);
+			printf("%-12s ", d[k][j]);
 			printf("\n");
 			answer = 0;
 		}
-	}
-	// free(d);
+    }
 	if (answer == 1)
 	{
 		usleep(50000);

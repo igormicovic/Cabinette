@@ -6,11 +6,12 @@
 /*   By: btvildia <btvildia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 22:07:52 by btvildia          #+#    #+#             */
-/*   Updated: 2023/12/14 23:25:51 by btvildia         ###   ########.fr       */
+/*   Updated: 2023/12/15 14:10:35 by btvildia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <fcntl.h>
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -21,7 +22,7 @@
 #define YELLOW "\x1b[33m"
 #define RESET "\x1b[0m"
 
-size_t	ft_strlen(char *s)
+size_t	mine_ft_strlen(char *s)
 {
 	size_t	i;
 
@@ -57,7 +58,7 @@ char	*ft_nline(char *s, int c)
 	return (NULL);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*mine_ft_strjoin(char *s1, char *s2)
 {
 	unsigned int	x;
 	unsigned int	y;
@@ -65,8 +66,8 @@ char	*ft_strjoin(char *s1, char *s2)
 	char			*a;
 
 	i = -1;
-	x = ft_strlen(s1);
-	y = ft_strlen(s2);
+	x = mine_ft_strlen(s1);
+	y = mine_ft_strlen(s2);
 	a = malloc(x + y + 1);
 	if (!a)
 		return (NULL);
@@ -85,7 +86,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (a);
 }
 
-char	*ft_strjoin_null(char *s2)
+char	*mine_ft_strjoin_null(char *s2)
 {
 	unsigned int	x;
 	unsigned int	y;
@@ -94,7 +95,7 @@ char	*ft_strjoin_null(char *s2)
 
 	i = 0;
 	x = 0;
-	y = ft_strlen((char *)s2);
+	y = mine_ft_strlen((char *)s2);
 	a = malloc(x + y + 1);
 	if (!a)
 		return (NULL);
@@ -113,9 +114,9 @@ char	*ft_reallocate(char *s1, char *s2)
 	char	*str;
 
 	if (!s1)
-		str = ft_strjoin_null(s2);
+		str = mine_ft_strjoin_null(s2);
 	else
-		str = ft_strjoin(s1, s2);
+		str = mine_ft_strjoin(s1, s2);
 	free(s1);
 	s1 = str;
 	return (s1);
@@ -161,7 +162,7 @@ char	*mine_ft_save(char *buff)
 		free(buff);
 		return (NULL);
 	}
-	line = malloc(sizeof(char) * (ft_strlen(buff) - i));
+	line = malloc(sizeof(char) * (mine_ft_strlen(buff) - i));
 	if (!line)
 		return (free(buff), NULL);
 	i++;
@@ -394,7 +395,7 @@ int	main(void)
 	{
 		printf(RED "❌ [One or more files failed norminette checks]\n" RESET);
 	}
-	if (ft_strlen(failed_functions) > 5)
+	if (mine_ft_strlen(failed_functions) > 5)
 	{
 		printf(RED "❌ [One or more files failed in tests]\n" RESET);
 		printf(RED "\nFailed functions: [ %s ]\n\n", failed_functions);
