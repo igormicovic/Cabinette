@@ -15,5 +15,5 @@ in correct directory.
 
 for update to latest version:
 ```
---Cupdate
+C_update
 ```

@@ -1,2 +1,2 @@
-cd ..
+cd
 rm -rf Cabinette && git clone git@github.com:BEQSONA-cmd/Cabinette.git && cd Cabinette && ./install
