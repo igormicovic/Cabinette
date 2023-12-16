@@ -6,7 +6,7 @@
 /*   By: btvildia <btvildia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 22:07:52 by btvildia          #+#    #+#             */
-/*   Updated: 2023/12/15 14:10:35 by btvildia         ###   ########.fr       */
+/*   Updated: 2023/12/16 20:44:17 by btvildia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ size_t	mine_ft_strlen(char *s)
 	return (i);
 }
 
-char	*ft_nline(char *s, int c)
+char	*mine_ft_nline(char *s, int c)
 {
 	c = (char)c;
 	while (1)
@@ -109,7 +109,7 @@ char	*mine_ft_strjoin_null(char *s2)
 	return (a);
 }
 
-char	*ft_reallocate(char *s1, char *s2)
+char	*mine_ft_reallocate(char *s1, char *s2)
 {
 	char	*str;
 
@@ -131,7 +131,7 @@ char	*mine_read_full(int fd, char *line)
 	if (!buff)
 		return (NULL);
 	byte = 1;
-	while (!ft_nline(line, '\n') && byte > 0)
+	while (!mine_ft_nline(line, '\n') && byte > 0)
 	{
 		byte = read(fd, buff, BUFFER_SIZE);
 		if (byte < 0)
@@ -141,7 +141,7 @@ char	*mine_read_full(int fd, char *line)
 			return (NULL);
 		}
 		buff[byte] = '\0';
-		line = ft_reallocate(line, buff);
+		line = mine_ft_reallocate(line, buff);
 	}
 	free(buff);
 	return (line);
