@@ -53,7 +53,7 @@ elif [ -e "$file4" ]; then
   rm text.txt
   mv testing Makefile
   mv testing.c main.c
-  elif [ -e "$file4" ]; then
+  elif [ -e "$file5" ]; then
   mv Makefile testing
   mv main.c testing.c
   cp ~/Cabinette/Ft_Printf/main.c .
