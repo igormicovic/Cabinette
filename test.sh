@@ -1,7 +1,8 @@
 file1="ft_lstnew.c"
-file2="get_next_line.c"
-file3="ft_lstnew_bonus.c"
-file4="libft.h"
+file2="ft_lstnew_bonus.c"
+file3="libft.h"
+file4="get_next_line.c"
+file5="ft_printf.h"
 
 if [ -e "$file1" ]; then
   mv Makefile testing
@@ -13,7 +14,7 @@ if [ -e "$file1" ]; then
   rm Makefile
   mv testing Makefile
   mv testing.c main.c
-elif [ -e "$file3" ]; then
+elif [ -e "$file2" ]; then
   mv Makefile testing
   mv main.c testing.c
   cp ~/Cabinette/Libft/main.c .
@@ -24,7 +25,7 @@ elif [ -e "$file3" ]; then
   rm Makefile
   mv testing Makefile
   mv testing.c main.c
-elif [ -e "$file4" ]; then
+elif [ -e "$file3" ]; then
   mv Makefile testing
   mv main.c testing.c
   cp ~/Cabinette/Libft/main2.c .
@@ -36,7 +37,7 @@ elif [ -e "$file4" ]; then
   rm Makefile
   mv testing Makefile
   mv testing.c main.c
-elif [ -e "$file2" ]; then
+elif [ -e "$file4" ]; then
   mv Makefile testing
   mv main.c testing.c
   cp ~/Cabinette/Get_Next_Line/main.c .
@@ -50,6 +51,16 @@ elif [ -e "$file2" ]; then
   rm long.txt
   rm nline.txt
   rm text.txt
+  mv testing Makefile
+  mv testing.c main.c
+  elif [ -e "$file4" ]; then
+  mv Makefile testing
+  mv main.c testing.c
+  cp ~/Cabinette/Ft_Printf/main.c .
+  cp ~/Cabinette/Ft_Printf/Makefile .
+  make test
+  rm main.c
+  rm Makefile
   mv testing Makefile
   mv testing.c main.c
 else
