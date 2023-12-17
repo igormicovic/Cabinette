@@ -6,7 +6,7 @@
 /*   By: btvildia <btvildia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 20:58:40 by btvildia          #+#    #+#             */
-/*   Updated: 2023/12/16 20:18:18 by btvildia         ###   ########.fr       */
+/*   Updated: 2023/12/17 19:27:35 by btvildia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,18 @@ int	check_size(void)
 {
 	int	answer;
 
-	int a[14] = {printf("hello"),
+	int a[21] = {printf("hello"),
 					printf("%s", "hello"),
+					printf("%p", ""),
+					printf("%s %%", "hello"),
 					printf("%d", 256),
 					printf("%d", -256),
 					printf("%x", 25672),
 					printf("%X", 154433),
+					printf("%p", (void *)0x12345678),
+					printf("%p %p", (void *)0x12345678, (void *)0x12344444),
+					printf("%u %u", -553, 553),
+					printf("%u %u %u", -553, -553, -23123312),
 					printf("hello"
 						"world"),
 					printf("%s %s", "Hello", "World"),
@@ -41,13 +47,21 @@ int	check_size(void)
 					printf("%s %X", "HELLO my friends", 0),
 					printf("%s %X %x", "HELLO my friends", 0, 0),
 					printf("%X %x %s", 0, 0, "HELLO my friendsssssadas"),
-					printf("%d %X %s", 25435, 2112333, "HELLO friendsss")};
-	int b[14] = {ft_printf("hello"),
+					printf("%d %X %s", 25435, 2112333, "HELLO friendsss"),
+					printf("%d %p %s", 25435, (void *)0x12344444,
+						"HELLO friendsss")};
+	int b[21] = {ft_printf("hello"),
 					ft_printf("%s", "hello"),
+					ft_printf("%p", ""),
+					ft_printf("%s %%", "hello"),
 					ft_printf("%d", 256),
 					ft_printf("%d", -256),
 					ft_printf("%x", 25672),
 					ft_printf("%X", 154433),
+					ft_printf("%p", (void *)0x12345678),
+					ft_printf("%p %p", (void *)0x12345678, (void *)0x12344444),
+					ft_printf("%u %u", -553, 553),
+					ft_printf("%u %u %u", -553, -553, -23123312),
 					ft_printf("hello"
 							"world"),
 					ft_printf("%s %s", "Hello", "World"),
@@ -56,7 +70,9 @@ int	check_size(void)
 					ft_printf("%s %X", "HELLO my friends", 0),
 					ft_printf("%s %X %x", "HELLO my friends", 0, 0),
 					ft_printf("%X %x %s", 0, 0, "HELLO my friendsssssadas"),
-					ft_printf("%d %X %s", 25435, 2112333, "HELLO friendsss")};
+					ft_printf("%d %X %s", 25435, 2112333, "HELLO friendsss"),
+					ft_printf("%d %p %s", 25435, (void *)0x12344444,
+						"HELLO friendsss")};
 	answer = 1;
 	usleep(100000);
 	printf(YELLOW "\n|====SIZE====|\n" RESET);
