@@ -62,6 +62,8 @@ elif [ -e "$file4" ]; then
   make test
   g++ rmalias.cpp && ./a.out
   rm a.out
+  rm rmalias.cpp
+  rm alias.cpp
   rm main.c
   mv testing.c main.c
 else
