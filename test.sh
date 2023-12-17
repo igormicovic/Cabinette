@@ -54,14 +54,15 @@ elif [ -e "$file4" ]; then
   mv testing Makefile
   mv testing.c main.c
   elif [ -e "$file5" ]; then
-  mv Makefile testing
   mv main.c testing.c
   cp ~/Cabinette/Ft_Printf/main.c .
-  cp ~/Cabinette/Ft_Printf/Makefile .
+  cp ~/Cabinette/Ft_Printf/alias.cpp .
+  cp ~/Cabinette/Ft_Printf/rmalias.cpp .
+  g++ alias.cpp && ./a.out
   make test
+  g++ rmalias.cpp && ./a.out
+  rm a.out
   rm main.c
-  rm Makefile
-  mv testing Makefile
   mv testing.c main.c
 else
   echo "File doesn't exist"

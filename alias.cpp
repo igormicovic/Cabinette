@@ -18,18 +18,14 @@ int main() {
     char path[1024];
     snprintf(path, sizeof(path), "%s/.zshrc", home);
 
-    std::ofstream file(path, std::ios::out | std::ios::trunc);
-
+    std::ofstream file(path, std::ios::out | std::ios::app);
+    
     if (!file.is_open()) {
         perror("Error opening the file");
         return 1;
     }
-    else {
-        ft_putstr_fd("\n", file);
-        ft_putstr_fd("alias francinette=~/francinette/tester.sh\n", file);
-        ft_putstr_fd("\n", file);
-        ft_putstr_fd("alias paco=~/francinette/tester.sh\n", file);
-        ft_putstr_fd("\n", file);
+    else 
+    {
         ft_putstr_fd("alias cabinette=~/Cabinette/test.sh\n", file);
         ft_putstr_fd("\n", file);
         ft_putstr_fd("alias paulo=~/Cabinette/test.sh\n", file);

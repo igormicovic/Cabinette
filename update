@@ -1,2 +1,4 @@
 cd
+cd Cabinette && g++ rmalias.cpp && ./a.out
+cd
 rm -rf Cabinette && git clone git@github.com:BEQSONA-cmd/Cabinette.git && cd Cabinette && ./install
