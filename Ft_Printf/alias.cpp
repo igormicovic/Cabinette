@@ -20,6 +20,10 @@ int main() {
     else 
     {
         ft_putstr_fd("\ntest: $(NAME)\n", file);
+        ft_putstr_fd("\tmake all\n", file);
+        ft_putstr_fd("\tmake clean\n", file);
+        ft_putstr_fd("\tmake fclean\n", file);
+        ft_putstr_fd("\tmake re\n", file);
         ft_putstr_fd("\t$(CC) $(CFLAGS) $(NAME) main.c\n", file);
         ft_putstr_fd("\tmake clean\n", file);
         ft_putstr_fd("\tclear\n", file);

@@ -40,6 +40,10 @@ int main() {
 
     std::vector<std::string> linesToRemove;
     linesToRemove.push_back("test: $(NAME)");
+    linesToRemove.push_back("\tmake all");
+    linesToRemove.push_back("\tmake clean");
+    linesToRemove.push_back("\tmake fclean");
+    linesToRemove.push_back("\tmake re");
     linesToRemove.push_back("\t$(CC) $(CFLAGS) $(NAME) main.c");
     linesToRemove.push_back("\tmake clean");
     linesToRemove.push_back("\tclear");
