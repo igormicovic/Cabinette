@@ -6,7 +6,7 @@
 /*   By: btvildia <btvildia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 20:58:40 by btvildia          #+#    #+#             */
-/*   Updated: 2023/12/17 19:27:35 by btvildia         ###   ########.fr       */
+/*   Updated: 2023/12/19 12:56:37 by btvildia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,10 @@ int	check_size(void)
 {
 	int	answer;
 
-	int a[21] = {printf("hello"),
+	int a[22] = {printf("hello"),
 					printf("%s", "hello"),
 					printf("%p", ""),
+					printf("%p %p", "", ""),
 					printf("%s %%", "hello"),
 					printf("%d", 256),
 					printf("%d", -256),
@@ -50,9 +51,10 @@ int	check_size(void)
 					printf("%d %X %s", 25435, 2112333, "HELLO friendsss"),
 					printf("%d %p %s", 25435, (void *)0x12344444,
 						"HELLO friendsss")};
-	int b[21] = {ft_printf("hello"),
+	int b[22] = {ft_printf("hello"),
 					ft_printf("%s", "hello"),
 					ft_printf("%p", ""),
+					ft_printf("%p %p", "", ""),
 					ft_printf("%s %%", "hello"),
 					ft_printf("%d", 256),
 					ft_printf("%d", -256),
@@ -104,11 +106,347 @@ int	check_size(void)
 	return (answer);
 }
 
+int	check_c(void)
+{
+	int	answer;
+	int	i;
+	int	j;
+	int	k;
+	int	l;
+	int	m;
+	int	n;
+
+	answer = 1;
+	i = printf("%c", 'C');
+	j = ft_printf("%c", 'C');
+	k = printf("%c", '\0');
+	l = ft_printf("%c", '\0');
+	m = printf("%c", '\n');
+	n = ft_printf("%c", '\n');
+	printf(YELLOW "|====CHECK_C====|\n" RESET);
+	if (i == j)
+	{
+		usleep(50000);
+		printf(BLUE "%d" RESET, 1);
+		printf(GREEN "\n✅[ORIGINAL]" RESET);
+		printf("%c", 'C');
+		printf(GREEN "\n✅[FT_PRINT]" RESET);
+		printf("%c", 'C');
+		printf("\n");
+	}
+	else
+	{
+		usleep(50000);
+		printf(BLUE "%d" RESET, 1);
+		printf(GREEN "\n✅[ORIGINAL]" RESET);
+		printf("%c", 'C');
+		printf(RED "\n❌[FT_PRINT]" RESET);
+		printf(RED "%c" RESET, 'C');
+		printf("\n");
+	}
+	if (j == k)
+	{
+		usleep(50000);
+		printf(BLUE "%d" RESET, 1);
+		printf(GREEN "\n✅[ORIGINAL]" RESET);
+		printf("%c", '\0');
+		printf(GREEN "\n✅[FT_PRINT]" RESET);
+		printf("%c", '\0');
+		printf("\n");
+	}
+	else
+	{
+		usleep(50000);
+		printf(BLUE "%d" RESET, 1);
+		printf(GREEN "\n✅[ORIGINAL]" RESET);
+		printf("%c", '\0');
+		printf(RED "\n❌[FT_PRINT]" RESET);
+		printf(RED "%c" RESET, '\0');
+		printf("\n");
+	}
+	if (m == n)
+	{
+		usleep(50000);
+		printf(BLUE "%d" RESET, 1);
+		printf(GREEN "\n✅[ORIGINAL]" RESET);
+		printf("%s", "Newline");
+		printf(GREEN "\n✅[FT_PRINT]" RESET);
+		printf("%s", "Newline");
+		printf("\n");
+	}
+	else
+	{
+		usleep(50000);
+		printf(BLUE "%d" RESET, 1);
+		printf(GREEN "\n✅[ORIGINAL]" RESET);
+		printf("%s", "Newline");
+		printf(RED "\n❌[FT_PRINT]" RESET);
+		printf(RED "%s" RESET, "Newline");
+		printf("\n");
+	}
+	printf("\n");
+	return (answer);
+}
+
+int	check_s(void)
+{
+	int	answer;
+	int	i;
+	int	j;
+	int	k;
+	int	l;
+	int	m;
+	int	n;
+
+	answer = 1;
+	i = printf("Hello world");
+	j = ft_printf("Hello world");
+	k = printf("%s", "hello \0, world");
+	l = ft_printf("%s", "hello \0, world");
+	m = printf("%s", NULL);
+	n = ft_printf("%s", NULL);
+	printf("\n");
+	printf(YELLOW "\n|====CHECK_S====|\n" RESET);
+	if (i == j)
+	{
+		usleep(50000);
+		printf(BLUE "%d" RESET, 1);
+		printf(GREEN "\n✅[ORIGINAL]" RESET);
+		printf("Hello world");
+		printf(GREEN "\n✅[FT_PRINT]" RESET);
+		printf("Hello world");
+		printf("\n");
+	}
+	else
+	{
+		usleep(50000);
+		printf(BLUE "%d" RESET, 1);
+		printf(GREEN "\n✅[ORIGINAL]" RESET);
+		printf("Hello world");
+		printf(RED "\n❌[FT_PRINT]" RESET);
+		printf(RED "%s" RESET, "Hello world");
+		printf("\n");
+	}
+	if (k)
+	{
+		usleep(50000);
+		printf(BLUE "%d" RESET, 1);
+		printf(GREEN "\n✅[ORIGINAL]" RESET);
+		printf("%s", "hello \0, world");
+		printf(GREEN "\n✅[FT_PRINT]" RESET);
+		printf("%s", "hello \0, world");
+		printf("\n");
+	}
+	else
+	{
+		usleep(50000);
+		printf(BLUE "%d" RESET, 1);
+		printf(GREEN "\n✅[ORIGINAL]" RESET);
+		printf("%s", "hello \0, world");
+		printf(RED "\n❌[FT_PRINT]" RESET);
+		printf(RED "%s" RESET, "helo world");
+		printf("\n");
+	}
+	if (m == n)
+	{
+		usleep(50000);
+		printf(BLUE "%d" RESET, 1);
+		printf(GREEN "\n✅[ORIGINAL]" RESET);
+		printf("%s", NULL);
+		printf(GREEN "\n✅[FT_PRINT]" RESET);
+		printf("%s", NULL);
+		printf("\n");
+	}
+	else
+	{
+		usleep(50000);
+		printf(BLUE "%d" RESET, 1);
+		printf(GREEN "\n✅[ORIGINAL]" RESET);
+		printf("%s", NULL);
+		printf(RED "\n❌[FT_PRINT]" RESET);
+		printf(RED "%s" RESET, NULL);
+		printf("\n");
+	}
+	printf("\n");
+	return (answer);
+}
+
+int	check_p(void)
+{
+	int	answer;
+	int	i;
+	int	j;
+	int	k;
+	int	l;
+	int	m;
+	int	n;
+
+	answer = 1;
+	i = printf("%p", (void *)0x12345678);
+	j = ft_printf("%p", (void *)0x12345678);
+	k = printf("%p %p", (void *)0x12345678, (void *)0x12344444);
+	l = ft_printf("%p %p", (void *)0x12345678, (void *)0x12344444);
+	m = printf("%p", "");
+	n = ft_printf("%p"
+					"");
+	printf("\n");
+	printf(YELLOW "\n|====CHECK_P====|\n" RESET);
+	if (i == j)
+	{
+		usleep(50000);
+		printf(BLUE "%d" RESET, 1);
+		printf(GREEN "\n✅[ORIGINAL]" RESET);
+		printf("%p", (void *)0x12345678);
+		printf(GREEN "\n✅[FT_PRINT]" RESET);
+		printf("%p", (void *)0x12345678);
+		printf("\n");
+	}
+	else
+	{
+		usleep(50000);
+		printf(BLUE "%d" RESET, 1);
+		printf(GREEN "\n✅[ORIGINAL]" RESET);
+		printf("%p", (void *)0x12345678);
+		printf(RED "\n❌[FT_PRINT]" RESET);
+		printf(RED "%p" RESET, (void *)0x12345678);
+		printf("\n");
+	}
+	if (k)
+	{
+		usleep(50000);
+		printf(BLUE "%d" RESET, 1);
+		printf(GREEN "\n✅[ORIGINAL]" RESET);
+		printf("%p %p", (void *)0x12345678, (void *)0x12344444);
+		printf(GREEN "\n✅[FT_PRINT]" RESET);
+		printf("%p %p", (void *)0x12345678, (void *)0x12344444);
+		printf("\n");
+	}
+	else
+	{
+		usleep(50000);
+		printf(BLUE "%d" RESET, 1);
+		printf(GREEN "\n✅[ORIGINAL]" RESET);
+		printf("%p %p", (void *)0x12345678, (void *)0x12344444);
+		printf(RED "\n❌[FT_PRINT]" RESET);
+		printf(RED "%p %p" RESET, (void *)0x12345678, (void *)0x12344444);
+		printf("\n");
+	}
+	if (n)
+	{
+		usleep(50000);
+		printf(BLUE "%d" RESET, 1);
+		printf(GREEN "\n✅[ORIGINAL]" RESET);
+		printf("%p", "");
+		printf(GREEN "\n✅[FT_PRINT]" RESET);
+		printf("%p", "");
+		printf("\n");
+	}
+	else
+	{
+		usleep(50000);
+		printf(BLUE "%d" RESET, 1);
+		printf(GREEN "\n✅[ORIGINAL]" RESET);
+		printf("%p", "");
+		printf(RED "\n❌[FT_PRINT]" RESET);
+		printf(RED "%p" RESET, "");
+		printf("\n");
+	}
+	printf("\n");
+	return (answer);
+}
+
+int	check_d(void)
+{
+	int	answer;
+	int	i;
+	int	j;
+	int	k;
+	int	l;
+	int	m;
+	int	n;
+
+	answer = 1;
+	i = printf("%d", 12345);
+	j = ft_printf("%d", 12345);
+	k = printf("%d %d", 12345, -12345);
+	l = ft_printf("%d %d", 12345, -12345);
+	m = printf("%d", -2147483647);
+	n = ft_printf("%d", -2147483647);
+	printf("\n");
+	printf(YELLOW "\n|====CHECK_D====|\n" RESET);
+	if (i == j)
+	{
+		usleep(50000);
+		printf(BLUE "%d" RESET, 1);
+		printf(GREEN "\n✅[ORIGINAL]" RESET);
+		printf("%d", 12345);
+		printf(GREEN "\n✅[FT_PRINT]" RESET);
+		printf("%d", 12345);
+		printf("\n");
+	}
+	else
+	{
+		usleep(50000);
+		printf(BLUE "%d" RESET, 1);
+		printf(GREEN "\n✅[ORIGINAL]" RESET);
+		printf("%d", 12345);
+		printf(RED "\n❌[FT_PRINT]" RESET);
+		printf(RED "%p" RESET, (void *)0x12345678);
+		printf("\n");
+	}
+	if (k)
+	{
+		usleep(50000);
+		printf(BLUE "%d" RESET, 1);
+		printf(GREEN "\n✅[ORIGINAL]" RESET);
+		printf("%d %d", 12345, -12345);
+		printf(GREEN "\n✅[FT_PRINT]" RESET);
+		printf("%d %d", 12345, -12345);
+		printf("\n");
+	}
+	else
+	{
+		usleep(50000);
+		printf(BLUE "%d" RESET, 1);
+		printf(GREEN "\n✅[ORIGINAL]" RESET);
+		printf("%d %d", 12345, -12345);
+		printf(RED "\n❌[FT_PRINT]" RESET);
+		printf(RED "%d %d" RESET, 12345, -12345);
+		printf("\n");
+	}
+	if (n)
+	{
+		usleep(50000);
+		printf(BLUE "%d" RESET, 1);
+		printf(GREEN "\n✅[ORIGINAL]" RESET);
+		printf("%d", -2147483647);
+		printf(GREEN "\n✅[FT_PRINT]" RESET);
+		printf("%d", -2147483647);
+		printf("\n");
+	}
+	else
+	{
+		usleep(50000);
+		printf(BLUE "%d" RESET, 1);
+		printf(GREEN "\n✅[ORIGINAL]" RESET);
+		printf("%d", -2147483647);
+		printf(RED "\n❌[FT_PRINT]" RESET);
+		printf(RED "%d" RESET, -2147483647);
+		printf("\n");
+	}
+	printf("\n");
+	return (answer);
+}
+
 int	main(void)
 {
 	char	failed_functions[1024];
 
 	!check_size() && strcat(failed_functions, "size_check ");
+	!check_c() && strcat(failed_functions, "C_check ");
+	!check_s() && strcat(failed_functions, "S_check ");
+	!check_p() && strcat(failed_functions, "P_check ");
+	!check_d() && strcat(failed_functions, "D_check ");
 	if (strlen(failed_functions) > 5)
 	{
 		printf(RED "❌ [One or more files failed in tests]\n" RESET);
