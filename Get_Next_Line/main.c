@@ -6,7 +6,7 @@
 /*   By: btvildia <btvildia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 22:07:52 by btvildia          #+#    #+#             */
-/*   Updated: 2023/12/16 20:44:17 by btvildia         ###   ########.fr       */
+/*   Updated: 2023/12/19 17:16:20 by btvildia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@
 #define RED "\x1b[31m"
 #define GREEN "\x1b[32m"
 #define YELLOW "\x1b[33m"
+#define BLUE "\x1b[34m"
 #define RESET "\x1b[0m"
+
 
 size_t	mine_ft_strlen(char *s)
 {
@@ -265,15 +267,15 @@ int	check_basic(void)
 	answer = 1;
 	usleep(100000);
 	len = sizeof(b) / sizeof(b[1]);
-	printf(YELLOW"\n__________[BASIC_INPUT]__________\n"RESET);
+	printf(YELLOW "|====[BASIC_INPUT]====|\n" RESET);
 	for (int i = 0; i < len - 1; i++)
 	{
 		if (strcmp(a[i], b[i]) == 0)
 		{
 			usleep(50000);
-            printf("%s", a[i]);
+            printf(BLUE"%s"RESET, a[i]);
 			printf(GREEN"✅[OK]\n" RESET);
-            printf("%s", b[i]);
+            printf(BLUE"%s"RESET, b[i]);
             printf(GREEN"✅[OK]\n" RESET);
 		}
 		else
@@ -289,28 +291,28 @@ int	check_basic(void)
     if(a[5] == NULL)
     {
         usleep(50000);
-        printf("%s", NULL);
+        printf(BLUE"%s\n"RESET, NULL);
 		printf(GREEN"✅[OK]\n" RESET);
-        printf("%s", NULL);
+        printf(BLUE"%s\n"RESET, NULL);
         printf(GREEN"✅[OK]\n" RESET);
     }
-	printf("\n");
 	if (answer == 1)
 	{
 		usleep(50000);
-		printf(GREEN "✅  [CHECK] \n" RESET);
+		printf(GREEN "✅  [PASSED]  ✅\n" RESET);
 	}
 	else
 	{
 		usleep(50000);
 		printf(RED "❌  [ERROR] \n" RESET);
 	}
+	printf("\n");
 	return (answer);
 }
 
 int	check_nline(void)
 {
-    	int		answer;
+    int		answer;
 	int		fd;
     int fd1;
 	fd = open("nline.txt", O_RDONLY);
@@ -324,12 +326,13 @@ int	check_nline(void)
 	answer = 1;
 	usleep(100000);
 	len = sizeof(b) / sizeof(b[1]);
-	printf(YELLOW"\n__________[NLINE]__________\n"RESET);
+	printf(YELLOW "|====[NLINE]====|\n" RESET);
 	for (int i = 0; i < len - 1; i++)
 	{
 		if (strcmp(a[i], b[i]) == 0)
 		{
 			usleep(50000);
+			printf(BLUE"Nline\n"RESET);
 			printf(GREEN"[CHECK]✅[OK]\n" RESET);
 		}
 		else
@@ -345,16 +348,74 @@ int	check_nline(void)
     if(a[5] == NULL)
     {
         usleep(50000);
-        printf("%s", NULL);
+        printf(BLUE"%s\n"RESET, NULL);
 		printf(GREEN"✅[OK]\n" RESET);
-        printf("%s", NULL);
+        printf(BLUE"%s\n"RESET, NULL);
         printf(GREEN"✅[OK]\n" RESET);
     }
-	printf("\n");
 	if (answer == 1)
 	{
 		usleep(50000);
-		printf(GREEN "✅  [CHECK] \n" RESET);
+		printf(GREEN "✅  [PASSED]  ✅\n" RESET);
+	}
+	else
+	{
+		usleep(50000);
+		printf(RED "❌  [ERROR] \n" RESET);
+	}
+	printf("\n");
+	return (answer);
+}
+
+int	check_long(void)
+{
+	int		answer;
+	int		fd;
+    int fd1;
+	fd = open("long.txt", O_RDONLY);
+    fd1 = open("long.txt", O_RDONLY);
+	char	*a[] = {mine_get_next_line(fd), mine_get_next_line(fd), mine_get_next_line(fd),
+			mine_get_next_line(fd), mine_get_next_line(fd), mine_get_next_line(fd)};
+	char	*b[] = {get_next_line(fd1), get_next_line(fd1), get_next_line(fd1),
+			get_next_line(fd1), get_next_line(fd1), get_next_line(fd1)};
+	int		len;
+
+	answer = 1;
+	usleep(100000);
+	len = sizeof(b) / sizeof(b[1]);
+	printf(YELLOW "|====[LONG]====|\n" RESET);
+	for (int i = 0; i < len - 1; i++)
+	{
+		if (strcmp(a[i], b[i]) == 0)
+		{
+			usleep(50000);
+            printf(BLUE"%lu\n"RESET, strlen(a[i]));
+			printf(GREEN"✅[OK]\n" RESET);
+            printf(BLUE"%lu\n"RESET, strlen(b[i]));
+            printf(GREEN"✅[OK]\n" RESET);
+		}
+		else
+		{
+            usleep(50000);
+            printf(BLUE"%d\n"RESET, i);
+			printf(RED"\n❌[KO]" RESET);
+            printf(BLUE"%d\n"RESET, i);
+            printf(RED"\n❌[KO]" RESET);
+			answer = 0;
+		}
+	}
+    if(a[5] == NULL)
+    {
+        usleep(50000);
+        printf(BLUE"%s\n"RESET, NULL);
+		printf(GREEN"✅[OK]\n" RESET);
+        printf(BLUE"%s\n"RESET, NULL);
+        printf(GREEN"✅[OK]\n" RESET);
+    }
+	if (answer == 1)
+	{
+		usleep(50000);
+		printf(GREEN "✅  [PASSED]  ✅\n" RESET);
 	}
 	else
 	{
@@ -387,6 +448,7 @@ int	main(void)
 	}
 	!check_basic() && strcat(failed_functions, "basic_check ");
     !check_nline() && strcat(failed_functions, "nline ");
+	!check_long() && strcat(failed_functions, "long ");
 	if (overallStatus == EXIT_SUCCESS)
 	{
 		printf(GREEN "✅ [All files passed norminette checks]\n" RESET);
