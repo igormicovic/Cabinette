@@ -1,4 +1,4 @@
-for copy the repo please run this command:
+for install the Cabinette please run this command:
 ```
 cd && git clone https://github.com/BEQSONA-cmd/Cabinette.git && cd Cabinette && ./install
 ```
