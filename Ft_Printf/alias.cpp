@@ -19,13 +19,11 @@ int main() {
     }
     else 
     {
-        ft_putstr_fd("\ntest: $(NAME)\n", file);
-        ft_putstr_fd("\t$(CC) $(CFLAGS) $(NAME) main.c\n", file);
-        ft_putstr_fd("\tmake clean\n", file);
-        ft_putstr_fd("\tclear\n", file);
+        ft_putstr_fd("\ntest: all\n", file);
+        ft_putstr_fd("\t$(CC) main.c libftprintf.a\n", file);
         ft_putstr_fd("\t./a.out\n", file);
+        ft_putstr_fd("\t@rm a.out\n", file);
     }
-
     file.close();
     return 0;
 }

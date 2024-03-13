@@ -16,7 +16,7 @@ if [ -e "$file1" ]; then
   rm rmalias.cpp
   rm alias.cpp
   rm main.c
-  mv testing.c main.c
+  mv testing.c main.c 2>/dev/null
 elif [ -e "$file2" ]; then
   mv main.c testing.c
   cp ~/Cabinette/Libft/main.c .
@@ -29,7 +29,7 @@ elif [ -e "$file2" ]; then
   rm rmalias.cpp
   rm alias.cpp
   rm main.c
-  mv testing.c main.c
+  mv testing.c main.c 2>/dev/null
 elif [ -e "$file3" ]; then
   mv main.c testing.c
   cp ~/Cabinette/Libft/main2.c .
@@ -43,7 +43,7 @@ elif [ -e "$file3" ]; then
   rm rmalias.cpp
   rm alias.cpp
   rm main.c
-  mv testing.c main.c
+  mv testing.c main.c 2>/dev/null
 elif [ -e "$file4" ]; then
   mv Makefile testing
   mv main.c testing.c
@@ -58,8 +58,8 @@ elif [ -e "$file4" ]; then
   rm long.txt
   rm nline.txt
   rm text.txt
-  mv testing Makefile
-  mv testing.c main.c
+  mv testing Makefile 2>/dev/null
+  mv testing.c main.c 2>/dev/null
   elif [ -e "$file5" ]; then
   mv main.c testing.c
   cp ~/Cabinette/Ft_Printf/main.c .
@@ -72,7 +72,7 @@ elif [ -e "$file4" ]; then
   rm rmalias.cpp
   rm alias.cpp
   rm main.c
-  mv testing.c main.c
+  mv testing.c main.c 2>/dev/null
 else
   echo "File doesn't exist"
 fi

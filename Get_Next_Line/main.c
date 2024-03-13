@@ -6,7 +6,7 @@
 /*   By: btvildia <btvildia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 22:07:52 by btvildia          #+#    #+#             */
-/*   Updated: 2023/12/19 17:16:20 by btvildia         ###   ########.fr       */
+/*   Updated: 2024/03/13 17:37:53 by btvildia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -428,7 +428,7 @@ int	check_long(void)
 
 int	main(void)
 {
-	char		failed_functions[1024];
+	char		failed_functions[3];
 	const char	*files[] = {"get_next_line.c", "get_next_line.h",
 			"get_next_line_utils.c", "get_next_line_bonus.c",
 			"get_next_line_bonus.h", "get_next_line_utils_bonus.c"};

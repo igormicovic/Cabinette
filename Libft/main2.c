@@ -6,7 +6,7 @@
 /*   By: btvildia <btvildia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 18:20:49 by escura            #+#    #+#             */
-/*   Updated: 2023/12/15 15:14:06 by btvildia         ###   ########.fr       */
+/*   Updated: 2024/03/13 15:47:19 by btvildia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,76 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+size_t strlcpy(char *dst, const char *src, size_t siz) {
+    char *d = dst;
+    const char *s = src;
+    size_t n = siz;
+
+    /* Copy as many bytes as will fit */
+    if (n != 0) {
+        while (--n != 0) {
+            if ((*d++ = *s++) == '\0')
+                break;
+        }
+    }
+
+    /* Not enough room in dst, add NUL and traverse rest of src */
+    if (n == 0) {
+        if (siz != 0)
+            *d = '\0';  /* NUL-terminate dst */
+        while (*s++)
+            ;
+    }
+
+    return(s - src - 1);  /* count does not include NUL */
+}
+
+char *strnstr(const char *haystack, const char *needle, size_t len) {
+    size_t	i;
+    size_t	j;
+
+    if (!*needle)
+        return ((char *)haystack);
+    i = 0;
+    while (haystack[i] && i < len)
+    {
+        j = 0;
+        while (haystack[i + j] == needle[j] && (i + j) < len)
+        {
+            if (!needle[j + 1])
+                return ((char *)&haystack[i]);
+            j++;
+        }
+        i++;
+    }
+    return (NULL);
+}
+
+size_t strlcat(char *dst, const char *src, size_t siz) {
+    char *d = dst;
+    const char *s = src;
+    size_t n = siz;
+    size_t dlen;
+
+    while (n-- != 0 && *d != '\0')
+        d++;
+    dlen = d - dst;
+    n = siz - dlen;
+
+    if (n == 0)
+        return(dlen + strlen(s));
+    while (*s != '\0') {
+        if (n != 1) {
+            *d++ = *s;
+            n--;
+        }
+        s++;
+    }
+    *d = '\0';
+
+    return(dlen + (s - src));
+}
 
 #define RED "\x1b[31m"
 #define GREEN "\x1b[32m"

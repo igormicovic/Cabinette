@@ -6,7 +6,7 @@
 /*   By: btvildia <btvildia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 20:58:40 by btvildia          #+#    #+#             */
-/*   Updated: 2023/12/19 13:29:59 by btvildia         ###   ########.fr       */
+/*   Updated: 2024/03/13 17:37:33 by btvildia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -606,7 +606,7 @@ int	check_X(void)
 
 int	main(void)
 {
-	char	failed_functions[1024];
+	char	failed_functions[7];
 
 	!check_size() && strcat(failed_functions, "size_check ");
 	!check_c() && strcat(failed_functions, "C_check ");

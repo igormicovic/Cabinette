@@ -61,6 +61,8 @@ int main() {
     linesToRemove.push_back("alias paulo=~/Cabinette/test.sh");
     linesToRemove.push_back("");
     linesToRemove.push_back("alias C_update=~/Cabinette/update");
+    linesToRemove.push_back("");
+    linesToRemove.push_back("alias C_version=~/Cabinette/version");
 
     removeSpecificLines(path, linesToRemove);
 

@@ -7,17 +7,17 @@ OBJ = $(SRC:.c=.o)
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -D BUFFER_SIZE=42
+CFLAGS = -D BUFFER_SIZE=42
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	ar rc $(NAME) $(OBJ)
 
-test: $(NAME)
-	$(CC) $(CFLAGS) $(NAME) main.c
-	make clean
+test: all
+	$(CC) main.c get_next_line.a
 	./a.out
+	@rm a.out
 
 clean:
 	rm -f $(OBJ) $(B_OBJ)

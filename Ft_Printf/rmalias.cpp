@@ -39,11 +39,10 @@ int main() {
     const char* filename = "Makefile";
 
     std::vector<std::string> linesToRemove;
-    linesToRemove.push_back("test: $(NAME)");
-    linesToRemove.push_back("\t$(CC) $(CFLAGS) $(NAME) main.c");
-    linesToRemove.push_back("\tmake clean");
-    linesToRemove.push_back("\tclear");
+    linesToRemove.push_back("test: all");
+    linesToRemove.push_back("\t$(CC) main.c libftprintf.a");
     linesToRemove.push_back("\t./a.out");
+    linesToRemove.push_back("\t@rm a.out");
 
     removeLines(filename, linesToRemove);
 

@@ -31,6 +31,8 @@ int main() {
         ft_putstr_fd("alias paulo=~/Cabinette/test.sh\n", file);
         ft_putstr_fd("\n", file);
         ft_putstr_fd("alias C_update=~/Cabinette/update\n", file);
+        ft_putstr_fd("\n", file);
+        ft_putstr_fd("alias C_version=~/Cabinette/version\n", file);
     }
 
     file.close();

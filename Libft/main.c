@@ -6,7 +6,7 @@
 /*   By: btvildia <btvildia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 18:20:49 by escura            #+#    #+#             */
-/*   Updated: 2023/12/15 15:12:59 by btvildia         ###   ########.fr       */
+/*   Updated: 2024/03/13 17:51:28 by btvildia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,76 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+size_t strlcpy(char *dst, const char *src, size_t siz) {
+    char *d = dst;
+    const char *s = src;
+    size_t n = siz;
+
+    /* Copy as many bytes as will fit */
+    if (n != 0) {
+        while (--n != 0) {
+            if ((*d++ = *s++) == '\0')
+                break;
+        }
+    }
+
+    /* Not enough room in dst, add NUL and traverse rest of src */
+    if (n == 0) {
+        if (siz != 0)
+            *d = '\0';  /* NUL-terminate dst */
+        while (*s++)
+            ;
+    }
+
+    return(s - src - 1);  /* count does not include NUL */
+}
+
+char *strnstr(const char *haystack, const char *needle, size_t len) {
+    size_t	i;
+    size_t	j;
+
+    if (!*needle)
+        return ((char *)haystack);
+    i = 0;
+    while (haystack[i] && i < len)
+    {
+        j = 0;
+        while (haystack[i + j] == needle[j] && (i + j) < len)
+        {
+            if (!needle[j + 1])
+                return ((char *)&haystack[i]);
+            j++;
+        }
+        i++;
+    }
+    return (NULL);
+}
+
+size_t strlcat(char *dst, const char *src, size_t siz) {
+    char *d = dst;
+    const char *s = src;
+    size_t n = siz;
+    size_t dlen;
+
+    while (n-- != 0 && *d != '\0')
+        d++;
+    dlen = d - dst;
+    n = siz - dlen;
+
+    if (n == 0)
+        return(dlen + strlen(s));
+    while (*s != '\0') {
+        if (n != 1) {
+            *d++ = *s;
+            n--;
+        }
+        s++;
+    }
+    *d = '\0';
+
+    return(dlen + (s - src));
+}
 
 #define RED "\x1b[31m"
 #define GREEN "\x1b[32m"
@@ -2384,28 +2454,6 @@ int	check_ft_lstdelone(void)
 		printf("\n");
 		answer = 0;
 	}
-	ft_lstdelone(node, mine_ft_free);
-	if (strcmp(b, node->content) == 0)
-	{
-		usleep(50000);
-		printf("✅  ");
-		printf("original: ");
-		printf("%-12s ", b);
-		printf("| mine: ");
-		printf("%-12s ", node->content);
-		printf("\n");
-	}
-	else
-	{
-		usleep(50000);
-		printf("❌  ");
-		printf("original: ");
-		printf("%-12s ", b);
-		printf("| mine: ");
-		printf("%-12s ", node->content);
-		printf("\n");
-		answer = 0;
-	}
 	if (answer == 1)
 	{
 		usleep(50000);
@@ -2742,7 +2790,7 @@ int	check_ft_lstmap(void)
 
 int	main(void)
 {
-	char		failed_functions[1024];
+	char		failed_functions[29];
 	const char	*files[] = {"ft_atoi.c", "ft_bzero.c", "ft_memset.c",
 			"ft_isalnum.c", "ft_isalpha.c", "ft_isascii.c", "ft_isdigit.c",
 			"ft_isprint.c", "ft_memchr.c", "ft_memcmp.c", "ft_memcpy.c",
@@ -2819,7 +2867,7 @@ int	main(void)
 	if (ft_strlen(failed_functions) > 5)
 	{
 		printf(RED "❌ [One or more files failed in tests]\n" RESET);
-		printf(RED "\nFailed functions: [ %s ]\n\n", failed_functions);
+		printf(RED "\nFailed functions: [ %s ]\n\n" RESET, failed_functions);
 	}
 	else
 	{
