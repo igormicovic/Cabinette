@@ -1,6 +1,6 @@
 for copy the repo please run this command:
 ```
-git clone https://github.com/BEQSONA-cmd/Cabinette.git && cd Cabinette && ./install
+cd && git clone https://github.com/BEQSONA-cmd/Cabinette.git && cd Cabinette && ./install
 ```
 
 After that you have to run:
@@ -16,6 +16,11 @@ in correct directory.
 for update to latest version:
 ```
 C_update
+```
+
+for checking version:
+```
+C_version
 ```
 
 # Libft
