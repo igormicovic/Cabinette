@@ -3,6 +3,7 @@ file2="ft_lstnew_bonus.c"
 file3="libft.h"
 file4="get_next_line.c"
 file5="ft_printf.h"
+file6="pipex.h"
 
 if [ -e "$file1" ]; then
   mv main.c testing.c
@@ -73,6 +74,27 @@ elif [ -e "$file4" ]; then
   rm alias.cpp
   rm main.c
   mv testing.c main.c 2>/dev/null
+elif [ -e "$file6" ]; then
+  mv main.c testing.c
+  mv file1 testing
+  mv file2 testing2
+  cp ~/Cabinette/Pipex/file1 .
+  cp ~/Cabinette/Pipex/file2 .
+  cp ~/Cabinette/Pipex/pipex.py .
+  cp ~/Cabinette/Pipex/alias.cpp .
+  cp ~/Cabinette/Pipex/rmalias.cpp .
+  g++ alias.cpp && ./a.out
+  make test
+  g++ rmalias.cpp && ./a.out
+  rm a.out
+  rm rmalias.cpp
+  rm alias.cpp
+  rm pipex.py
+  rm file1
+  rm file2
+  mv testing.c main.c 2>/dev/null
+  mv testing file1 2>/dev/null
+  mv testing2 file2 2>/dev/null
 else
   echo "File doesn't exist"
 fi
