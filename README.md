@@ -1,6 +1,6 @@
 for install the Cabinette please run this command:
 ```
-bash -c "$(curl -fsSL https://chxikvia.tech/install.sh)"
+cd && git clone git@github.com:BEQSONA-cmd/Cabinette.git && cd Cabinette && ./install"
 ```
 
 After that you have to run:
