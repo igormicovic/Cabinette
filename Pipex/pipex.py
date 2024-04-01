@@ -12,6 +12,22 @@ def usleep(mlsec):
     sec = mlsec / 1000000.0
     time.sleep(sec)
 
+def check_norm():
+    answer = True
+    usleep(100000)
+    print(f"{BLUE}=== Norm check ==={RESET}")
+    r = subprocess.run('ls', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    arr = r.stdout.strip().split("\n")
+    for i, file_name in enumerate(arr, start=1):
+        r1 = subprocess.run(f'norminette {file_name}', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        if r1.returncode == 0:
+            print(f"{GREEN}{i}.[OK]{RESET}")
+        else:
+            print(f"{RED}{i}.[KO]{RESET}")
+            print(f'{RED}norminette {file_name}{RESET}')
+            answer = False
+    return answer
+
 def check_basic():
     answer = True
     usleep(100000)
@@ -21,6 +37,7 @@ def check_basic():
     cmd3 = './pipex file1 cat "wc -w" file2'
     cmd4 = './pipex file1 "ls -a" "wc -l" file2'
     cmd5 = './pipex file1 "ls -l" "wc -c" file2'
+    cmd6 = './pipex file1 "grep asdasdas" "cat" file2'
     r1 = subprocess.run("ls -a | wc -l", shell=True, capture_output=True, text=True)
     r2 = subprocess.run("ls -l | wc -c", shell=True, capture_output=True, text=True)
     subprocess.run(cmd, shell=True)
@@ -74,6 +91,16 @@ def check_basic():
     else:
         print(f"{RED}5.[KO]{RESET}")
         print(f'{RED}testing:./pipex file1 "ls -l" "wc -c" file2{RESET}')
+        answer = False
+    subprocess.run(cmd6, shell=True)
+    usleep(50000)
+    with open("file2", "r") as file:
+        str = file.read().strip()
+    if str == "asdasdas":
+        print(f"{GREEN}6.[OK]{RESET}")
+    else:
+        print(f"{RED}6.[KO]{RESET}")
+        print(f'{RED}testing:./pipex file1 "grep asdasdas" "cat" file2{RESET}')
         answer = False
     
     return answer
@@ -509,6 +536,8 @@ def check_exit_code():
     cmd9 = './pipex file1 " " " " file3' # 1
     cmd10 = './pipex file1 cat "wc -l"' # 1
     cmd11 = './pipex' # 1
+    cmd12 = './pipex file1 "ls -l" "wc -lsa" file2' # 1
+    cmd13 = './pipex file1 "ls -lsa" "wc -l" file2' # 0
     rm_cmd = 'rm -f file3'
     r = subprocess.run(cmd, shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     usleep(50000)
@@ -600,6 +629,22 @@ def check_exit_code():
         print(f"{RED}11.[KO]{RESET}")
         print(f'{RED}./pipex{RESET}')
         answer = False
+    r12 = subprocess.run(cmd13, shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    usleep(50000)
+    if r12.returncode == 0:
+        print(f"{GREEN}12.[OK]{RESET}")
+    else:
+        print(f"{RED}12.[KO]{RESET}")
+        print(f'{RED}./pipex file1 "ls -lsa" "wc -l" file2{RESET}')
+        answer = False
+    r13 = subprocess.run(cmd12, shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    usleep(50000)
+    if r13.returncode == 1:
+        print(f"{GREEN}13.[OK]{RESET}")
+    else:
+        print(f"{RED}13.[KO]{RESET}")
+        print(f'{RED}./pipex file1 "ls -l" "wc -lsa" file2{RESET}')
+        answer = False
     return answer
 
 def check_leaks():
@@ -617,6 +662,8 @@ def check_leaks():
     cmd8 = 'valgrind --leak-check=full ./pipex file1 "" "wc -l" file2'
     cmd9 = 'valgrind --leak-check=full ./pipex file1 " " " " file3'
     cmd10 = 'valgrind --leak-check=full ./pipex file1 cat "wc -l"'
+    cmd11 = 'valgrind --leak-check=full ./pipex file1 "ls -l" "wc -lsa" file2'
+    cmd12 = 'valgrind --leak-check=full ./pipex file1 "ls -lsa" "wc -l" file2'
     rm_cmd = 'rm -f file3'
     expected = "0 errors from 0 contexts (suppressed: 0 from 0)"
 
@@ -751,26 +798,62 @@ def check_leaks():
         print(f"{RED}10.[KO LEAKS]{RESET}")
         print(f'{RED}valgrind --leak-check=full ./pipex file1 cat "wc -l"{RESET}')
         answer = False
+    r11 = subprocess.run(cmd11, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    with open("/dev/null", "w") as dev_null:
+        subprocess.run(cmd11, shell=True, stdout=dev_null, stderr=dev_null)
+    leaks = r11.stderr.strip().split('\n')
+    l_s = leaks[-1]
+    l_l = l_s.split("ERROR SUMMARY: ")[1]
+    if l_l == expected:
+        print(f"{GREEN}11.[MOK]{RESET}")
+    else:
+        print(f"{RED}11.[KO LEAKS]{RESET}")
+        print(f'{RED}valgrind --leak-check=full ./pipex file1 "ls -l" "wc -lsa" file2{RESET}')
+        answer = False
+    r12 = subprocess.run(cmd12, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    with open("/dev/null", "w") as dev_null:
+        subprocess.run(cmd12, shell=True, stdout=dev_null, stderr=dev_null)
+    leaks = r12.stderr.strip().split('\n')
+    l_s = leaks[-1]
+    l_l = l_s.split("ERROR SUMMARY: ")[1]
+    if l_l == expected:
+        print(f"{GREEN}12.[MOK]{RESET}")
+    else:
+        print(f"{RED}12.[KO LEAKS]{RESET}")
+        print(f'{RED}valgrind --leak-check=full ./pipex file1 "ls -lsa" "wc -l" file2{RESET}')
+        answer = False
+
     return answer
 
 def main():
+    failed_tests = []
     test = True
+    if not check_norm():
+        test = False
+        failed_tests.append("Norm check")
     if not check_basic():
         test = False
+        failed_tests.append("Check basic")
     if not check_empty():
         test = False
+        failed_tests.append("Check empty")
     if not check_file():
         test = False
+        failed_tests.append("Check file")
     if not check_exit_code():
         test = False
+        failed_tests.append("Check exit code")
     if not check_leaks():
         test = False
+        failed_tests.append("Check leaks")
     if test:
         usleep(50000)
         print(f"{GREEN}\n[All tests passed]{RESET}")
     else:  
         usleep(50000)
-        print(f"{RED}\n[Some tests failed]{RESET}")
+        print(f"{RED}\nFailed tests:{RESET}")
+        for test in failed_tests:
+            print(f"{RED}[{test}]{RESET}")
     
 
 if __name__ == "__main__":
