@@ -4,6 +4,7 @@ file3="libft.h"
 file4="get_next_line.c"
 file5="ft_printf.h"
 file6="pipex.h"
+file7="Makefile"
 
 if [ -e "$file1" ]; then
   mv main.c testing.c
@@ -95,6 +96,31 @@ elif [ -e "$file6" ]; then
   mv testing.c main.c 2>/dev/null
   mv testing file1 2>/dev/null
   mv testing2 file2 2>/dev/null
+elif [ -e "$file7" ]; then
+  if cat Makefile | grep -q "pipex"; then
+    mv main.c testing.c
+    mv file1 testing
+    mv file2 testing2
+    cp ~/Cabinette/Pipex/file1 .
+    cp ~/Cabinette/Pipex/file2 .
+    cp ~/Cabinette/Pipex/pipex.py .
+    cp ~/Cabinette/Pipex/alias.cpp .
+    cp ~/Cabinette/Pipex/rmalias.cpp .
+    g++ alias.cpp && ./a.out
+    make test
+    g++ rmalias.cpp && ./a.out
+    rm a.out
+    rm rmalias.cpp
+    rm alias.cpp
+    rm pipex.py
+    rm file1
+    rm file2
+    mv testing.c main.c 2>/dev/null
+    mv testing file1 2>/dev/null
+    mv testing2 file2 2>/dev/null
+  else
+    echo "Cannot find any files from [libft,ft_printf,get_next_line,pipex]"
+  fi
 else
-  echo "File doesn't exist"
+  echo "Cannot find any files from [libft,ft_printf,get_next_line,pipex]."
 fi
