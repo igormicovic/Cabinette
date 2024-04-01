@@ -76,7 +76,6 @@ elif [ -e "$file4" ]; then
   rm main.c
   mv testing.c main.c 2>/dev/null
 elif [ -e "$file6" ]; then
-  mv main.c testing.c
   mv file1 testing
   mv file2 testing2
   cp ~/Cabinette/Pipex/file1 .
@@ -98,7 +97,6 @@ elif [ -e "$file6" ]; then
   mv testing2 file2 2>/dev/null
 elif [ -e "$file7" ]; then
   if cat Makefile | grep -q "pipex"; then
-    mv main.c testing.c
     mv file1 testing
     mv file2 testing2
     cp ~/Cabinette/Pipex/file1 .

@@ -300,7 +300,7 @@ def check_file():
         print(f'{RED}testing:./pipex file1 cat "wc -l" file3{RESET}')
         answer = False
     result = subprocess.run(cmd2, shell=True, capture_output=True, text=True)
-    ex_out = "file: No such file or directory"
+    ex_out = "pipex: file: No such file or directory"
     pr_out = result.stderr.strip()
     if ex_out == pr_out:
         usleep(50000)
@@ -320,7 +320,7 @@ def check_file():
         answer = False
     os.system(rm_cmd)
     r = subprocess.run(cmd3, shell=True, capture_output=True, text=True)
-    if r.stderr.strip() == "f: command not found":
+    if r.stderr.strip() == "pipex: f: command not found":
         usleep(50000)
         print(f"{GREEN}4.[OK]{RESET}")
     else:
@@ -341,7 +341,7 @@ def check_file():
     r2 = subprocess.run(cmd4, shell=True, capture_output=True, text=True)
     
     array = r2.stderr.strip().split("\n")
-    if array[0] == "f: command not found" and array[1] == "f: command not found":
+    if array[0] == "pipex: f: command not found" and array[1] == "pipex: f: command not found":
         usleep(50000)
         print(f"{GREEN}6.[OK]{RESET}")
     else:
@@ -360,7 +360,7 @@ def check_file():
         print(f'{RED}testing:./pipex file1 f f file2{RESET}')
         answer = False
     r3 = subprocess.run(cmd5, shell=True, capture_output=True, text=True)
-    if r3.stderr.strip() == "f: command not found":
+    if r3.stderr.strip() == "pipex: f: command not found":
         usleep(50000)
         print(f"{GREEN}8.[OK]{RESET}")
     else:
@@ -389,7 +389,7 @@ def check_file():
     os.system(rm_cmd)
     r4 = subprocess.run(cmd6, shell=True, capture_output=True, text=True)
     array = r4.stderr.strip().split("\n")
-    if array[0] == "f: command not found" and array[1] == "f: command not found":
+    if array[0] == "pipex: f: command not found" and array[1] == "pipex: f: command not found":
         usleep(50000)
         print(f"{GREEN}11.[OK]{RESET}")
     else:
@@ -418,7 +418,7 @@ def check_file():
     os.system(rm_cmd)
     r5 = subprocess.run(cmd7, shell=True, capture_output=True, text=True)
     array = r5.stderr.strip().split("\n")
-    if array[0] == "file: No such file or directory" and array[1] == "f: command not found":
+    if array[0] == "pipex: file: No such file or directory" and array[1] == "pipex: f: command not found":
         usleep(50000)
         print(f"{GREEN}14.[OK]{RESET}")
     else:
@@ -447,7 +447,7 @@ def check_file():
     os.system(rm_cmd)
     r6 = subprocess.run(cmd8, shell=True, capture_output=True, text=True)
     array = r6.stderr.strip().split("\n")
-    if array[0] == "file: No such file or directory" and array[1] == "f: command not found":
+    if array[0] == "pipex: file: No such file or directory" and array[1] == "pipex: f: command not found":
         usleep(50000)
         print(f"{GREEN}17.[OK]{RESET}")
     else:
