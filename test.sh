@@ -116,6 +116,12 @@ elif [ -e "$file7" ]; then
     mv testing.c main.c 2>/dev/null
     mv testing file1 2>/dev/null
     mv testing2 file2 2>/dev/null
+  elif cat Makefile | grep -q "push_swap"; then
+    cp ~/Cabinette/Push_Swap/visualizer.c .
+    cp ~/Cabinette/Push_Swap/python.py .
+    python3 python.py
+    rm visualizer.c
+    rm python.py
   else
     echo "Cannot find any files from [libft,ft_printf,get_next_line,pipex]"
   fi
