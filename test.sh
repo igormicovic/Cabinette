@@ -111,8 +111,8 @@ elif [ -e "$file7" ]; then
     rm rmalias.cpp
     rm alias.cpp
     rm pipex.py
-    rm file1
-    rm file2
+    rm file1 2>/dev/null
+    rm file2 2>/dev/null
     mv testing.c main.c 2>/dev/null
     mv testing file1 2>/dev/null
     mv testing2 file2 2>/dev/null
@@ -122,6 +122,11 @@ elif [ -e "$file7" ]; then
     python3 python.py
     rm visualizer.c
     rm python.py
+  elif cat Makefile | grep -q "philo"; then
+    cp ~/Cabinette/Philosophers/philo.py .
+    make
+    python3 philo.py
+    rm philo.py
   else
     echo "Cannot find any files from [libft,ft_printf,get_next_line,pipex]"
   fi

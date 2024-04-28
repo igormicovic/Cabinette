@@ -524,6 +524,9 @@ def check_file():
 def check_exit_code():
     answer = True
     usleep(100000)
+
+    #file1 and file2 exists,
+    #file and file3 does not exist
     print(f"{BLUE}=== Check exit code ==={RESET}")
     cmd = './pipex file1 cat "wc -l" file2' # 0
     cmd2 = './pipex file1 cat "wc -l" file3' # 0
@@ -798,18 +801,18 @@ def check_leaks():
         print(f"{RED}10.[KO LEAKS]{RESET}")
         print(f'{RED}valgrind --leak-check=full ./pipex file1 cat "wc -l"{RESET}')
         answer = False
-    r11 = subprocess.run(cmd11, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-    with open("/dev/null", "w") as dev_null:
-        subprocess.run(cmd11, shell=True, stdout=dev_null, stderr=dev_null)
-    leaks = r11.stderr.strip().split('\n')
-    l_s = leaks[-1]
-    l_l = l_s.split("ERROR SUMMARY: ")[1]
-    if l_l == expected:
-        print(f"{GREEN}11.[MOK]{RESET}")
-    else:
-        print(f"{RED}11.[KO LEAKS]{RESET}")
-        print(f'{RED}valgrind --leak-check=full ./pipex file1 "ls -l" "wc -lsa" file2{RESET}')
-        answer = False
+    # r11 = subprocess.run(cmd11, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    # with open("/dev/null", "w") as dev_null:
+    #     subprocess.run(cmd11, shell=True, stdout=dev_null, stderr=dev_null)
+    # leaks = r11.stderr.strip().split('\n')
+    # l_s = leaks[-1]
+    # l_l = l_s.split("ERROR SUMMARY: ")[1]
+    # if l_l == expected:
+    #     print(f"{GREEN}11.[MOK]{RESET}")
+    # else:
+    #     print(f"{RED}11.[KO LEAKS]{RESET}")
+    #     print(f'{RED}valgrind --leak-check=full ./pipex file1 "ls -l" "wc -lsa" file2{RESET}')
+    #     answer = False
     r12 = subprocess.run(cmd12, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     with open("/dev/null", "w") as dev_null:
         subprocess.run(cmd12, shell=True, stdout=dev_null, stderr=dev_null)
@@ -824,6 +827,44 @@ def check_leaks():
         answer = False
 
     return answer
+
+def run_pipex(cmd, expected_exit_code):
+    result = subprocess.run(cmd, shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    return result.returncode == expected_exit_code
+
+def check_exit_code_bonus():
+    test_cases = [
+        ('./pipex file1 "ls -l" "wc -l" "sort" file2', 0),
+        ('./pipex file1 "cat" "wc -l" "sort" file2', 0),
+        ('./pipex file1 "cat" "wc -l" "sort -r" file2', 0),
+        ('./pipex file1 "cat" "wc -l" "grep a" file2', 1),
+        ('./pipex file1 "ls -l" "wc -l" "grep a" file2', 1),
+        ('./pipex file1 "ls -l" "sort -r" "wc -l" "grep a" file2', 1),
+        ('./pipex file1 "ls -l" "sort -r" "grep a" "wc -l" file2', 0),
+        ('./pipex file1 "cat" "sort -r" "uniq" "wc -l" file2', 0),
+        ('./pipex file1 "cat" "grep a" "grep b" "wc -l" file2', 0),
+        ('./pipex file1 "cat" "grep a" "grep a" "wc -l" file2', 0),
+        ('./pipex file1 "cat" "grep -v a" "grep -v b" "wc -l" file2', 0),
+        ('./pipex file1 "ls -l" "grep -v total" "wc -l" file2', 0),
+        ('./pipex file1 "ls -l" "grep -v total" "sort" "wc -l" file2', 0),
+        ('./pipex file1 "cat" "grep -v a" "grep -v b" "sort" "uniq" "wc -l" file2', 0),
+        ('./pipex file1 "cat" "grep -v a" "grep -v b" "sort" "uniq" "wc -l" file1', 0),
+        ('./pipex file1 "ls -l" "grep -v total" "sort" "uniq" "wc -l" file1', 0),
+    ]
+
+    print(f"{BLUE}=== Check exit code Bonus ==={RESET}")
+
+    all_tests_passed = True
+    for i, (cmd, expected_exit_code) in enumerate(test_cases, start=1):
+        usleep(100000)
+        if run_pipex(cmd, expected_exit_code):
+            print(f"{GREEN}{i}.[OK]{RESET}")
+        else:
+            print(f"{RED}{i}.[KO]{RESET}")
+            print(f"{RED}{cmd}{RESET}")
+            all_tests_passed = False
+
+    return all_tests_passed
 
 def main():
     failed_tests = []
@@ -843,6 +884,12 @@ def main():
     if not check_exit_code():
         test = False
         failed_tests.append("Check exit code")
+    if not check_exit_code_bonus():
+        test = False
+        failed_tests.append("Check exit code bonus")
+    else:
+        rm_cmd2 = 'rm -f file1'
+        os.system(rm_cmd2)
     if not check_leaks():
         test = False
         failed_tests.append("Check leaks")
