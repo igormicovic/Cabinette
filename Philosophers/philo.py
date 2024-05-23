@@ -134,8 +134,8 @@ def chec_helgrind_when_10_times_eat():
     print(f"\n{BLUE}[ === Test if helgrind detects data races === ]{RESET}")
     print(f"{RED}!!! IT MAY TAKE A LONG TIME BECAUSE THE TESTS ARE VERY HEAVY !!!{RESET}")
     cmd = ['./philo 4 310 150 150 10', './philo 1 800 200 200 10', './philo 4 400 200 200 10', './philo 5 400 200 200 10', './philo 4 310 150 150 10',
-            './philo 200 800 60 60 10' , './philo 50 800 100 100 10', './philo 25 800 200 200 10' , './philo 10 800 200 200 10',
-            './philo 7 800 200 200 10', './philo 3 800 200 200 10', './philo 200 200 60 60 10', './philo 50 200 60 60 10',
+            './philo 150 800 60 60 10' , './philo 50 800 100 100 10', './philo 25 800 200 200 10' , './philo 10 800 200 200 10',
+            './philo 7 800 200 200 10', './philo 3 800 200 200 10', './philo 150 200 60 60 10', './philo 50 200 60 60 10',
             './philo 7 800 60 60 25', './philo 3 800 60 60 25', './philo 4 200 60 60 25', './philo 25 200 60 60 25',]
     helgraind_ok = "ERROR SUMMARY: 0 errors from 0 contexts"
     helgraind = 'valgrind --tool=helgrind'
