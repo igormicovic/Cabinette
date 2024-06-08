@@ -6,7 +6,7 @@
 /*   By: btvildia <btvildia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 18:20:49 by escura            #+#    #+#             */
-/*   Updated: 2024/03/13 15:47:19 by btvildia         ###   ########.fr       */
+/*   Updated: 2024/06/08 21:44:36 by btvildia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -223,6 +223,7 @@ int	check_ft_isalnum(void)
 	int		y;
 	char	test[] = {'a', '1', '\n'};
 	int		len;
+	int num[3] = {1, 1, 0};
 
 	answer = 1;
 	usleep(100000);
@@ -231,8 +232,7 @@ int	check_ft_isalnum(void)
 	for (int i = 0; i < len; i++)
 	{
 		x = ft_isalnum(test[i]);
-		y = isalnum(test[i]);
-		if (x == y)
+		if (x == num[i])
 		{
 			usleep(50000);
 			printf("✅  ");
@@ -268,7 +268,7 @@ int	check_ft_isalpha(void)
 	int		y;
 	char	test[] = {'a', '1', '\n'};
 	int		len;
-
+	int num[3] = {1, 0, 0};
 	answer = 1;
 	usleep(100000);
 	len = sizeof(test) / sizeof(char);
@@ -276,8 +276,7 @@ int	check_ft_isalpha(void)
 	for (int i = 0; i < len; i++)
 	{
 		x = ft_isalpha(test[i]);
-		y = isalpha(test[i]);
-		if (x == y)
+		if (x == num[i])
 		{
 			usleep(50000);
 			printf("✅  ");
@@ -358,7 +357,7 @@ int	check_ft_isdigit(void)
 	int		y;
 	char	test[] = {'a', '1', '\n', '0'};
 	int		len;
-
+	int num[4] = {0, 1, 0, 1};
 	answer = 1;
 	len = sizeof(test) / sizeof(char);
 	usleep(100000);
@@ -366,8 +365,7 @@ int	check_ft_isdigit(void)
 	for (int i = 0; i < len; i++)
 	{
 		x = ft_isdigit(test[i]);
-		y = isdigit(test[i]);
-		if (x == y)
+		if (x == num[i])
 		{
 			usleep(50000);
 			printf("✅  ");
@@ -404,6 +402,7 @@ int	check_ft_isprint(void)
 	char	test[] = {'a', '1', '\n', '0', 127};
 	int		len;
 
+	int num[5] = {1, 1, 0, 1, 0};
 	answer = 1;
 	len = sizeof(test) / sizeof(char);
 	usleep(100000);
@@ -411,8 +410,7 @@ int	check_ft_isprint(void)
 	for (int i = 0; i < len; i++)
 	{
 		x = ft_isprint(test[i]);
-		y = isprint(test[i]);
-		if (x == y)
+		if (x == num[i])
 		{
 			usleep(50000);
 			printf("✅  ");
