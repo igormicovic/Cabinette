@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: btvildia <btvildia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: imicovic <imicovic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 18:20:49 by escura            #+#    #+#             */
-/*   Updated: 2024/06/08 21:44:49 by btvildia         ###   ########.fr       */
+/*   Updated: 2024/06/12 19:54:07 by imicovic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -245,7 +245,7 @@ int	check_ft_isalnum(void)
 		}
 		printf("original: %d", x);
 		printf(" | ");
-		printf("mine: %d\n", y);
+		printf("mine: %d\n", num[i]);
 	}
 	if (answer == 1)
 	{
@@ -289,7 +289,7 @@ int	check_ft_isalpha(void)
 		}
 		printf("original: %d", x);
 		printf(" | ");
-		printf("mine: %d\n", y);
+		printf("mine: %d\n", num[i]);
 	}
 	if (answer == 1)
 	{
